@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ForCyclers — Break Your FTP Plateau</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray-mid: #e0e0e0;
+      --gray-text: #555555;
+      --accent: #1d4ed8;
+      --accent-hover: #1e40af;
+      --red: #dc2626;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── STICKY HEADER ── */
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--black);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .sticky-header .logo {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-primary.large {
+      padding: 16px 36px;
+      font-size: 17px;
+      border-radius: 6px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 24px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero .eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero .subhead {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--gray-text);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* ── VIDEO ── */
+    .video-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: var(--black);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .video-container iframe,
+    .video-container video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .video-placeholder {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 14px;
+      gap: 12px;
+    }
+    .video-placeholder svg { opacity: 0.3; }
+
+    /* ── CTA UNDER VIDEO ── */
+    .cta-section {
+      text-align: center;
+      padding: 40px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cta-section .cta-label {
+      font-size: 13px;
+      color: var(--gray-text);
+      margin-top: 12px;
+    }
+
+    /* ── URGENCY BAR ── */
+    .urgency-bar {
+      background: var(--gray-light);
+      border-top: 1px solid var(--gray-mid);
+      border-bottom: 1px solid var(--gray-mid);
+      text-align: center;
+      padding: 12px 24px;
+      font-size: 14px;
+      color: var(--gray-text);
+    }
+    .urgency-bar strong { color: var(--black); }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 64px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section.full-width {
+      max-width: 100%;
+      background: var(--gray-light);
+    }
+    section.full-width .inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    p { margin-bottom: 16px; color: #333; }
+
+    /* ── CREDIBILITY TILES ── */
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 32px;
+    }
+    .tile {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: 8px;
+      padding: 24px;
+      text-align: center;
+    }
+    .tile .tile-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .tile .tile-label {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.4;
+    }
+
+    /* ── SIGNALS ── */
+    .signals { list-style: none; margin-top: 24px; }
+    .signals li {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--gray-mid);
+      align-items: flex-start;
+    }
+    .signals li:last-child { border-bottom: none; }
+    .signal-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .signal-text strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .signal-text span { font-size: 14px; color: var(--gray-text); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .testimonial {
+      background: var(--gray-light);
+      border-radius: 8px;
+      padding: 28px;
+      border-left: 4px solid var(--accent);
+    }
+    .testimonial .result {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .testimonial .quote {
+      font-size: 16px;
+      font-style: italic;
+      color: #333;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+    .testimonial .person {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-text);
+    }
+
+    /* ── WHO IT'S FOR ── */
+    .for-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+    @media (max-width: 600px) { .for-grid { grid-template-columns: 1fr; } }
+    .for-block h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid;
+    }
+    .for-block.yes h3 { border-color: #16a34a; color: #16a34a; }
+    .for-block.no h3 { border-color: var(--red); color: var(--red); }
+    .for-block ul { list-style: none; }
+    .for-block ul li {
+      font-size: 14px;
+      color: #333;
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .for-block.yes ul li::before { content: "✓"; color: #16a34a; position: absolute; left: 0; font-weight: 700; }
+    .for-block.no ul li::before { content: "✕"; color: var(--red); position: absolute; left: 0; font-weight: 700; }
+
+    /* ── PROGRAM OVERVIEW ── */
+    .program-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .program-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .program-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+    .program-item-text strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .program-item-text span { font-size: 14px; color: var(--gray-text); line-height: 1.5; }
+
+    /* ── FAQ ── */
+    .faq { margin-top: 24px; }
+    details {
+      border-bottom: 1px solid var(--gray-mid);
+      padding: 16px 0;
+    }
+    details:first-child { border-top: 1px solid var(--gray-mid); }
+    summary {
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 20px; color: var(--accent); flex-shrink: 0; }
+    details[open] summary::after { content: "−"; }
+    details p {
+      margin-top: 12px;
+      font-size: 15px;
+      color: var(--gray-text);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 24px;
+    }
+    .final-cta h2 {
+      color: var(--white);
+      font-size: clamp(24px, 4vw, 40px);
+      margin-bottom: 16px;
+    }
+    .final-cta p {
+      color: rgba(255,255,255,0.6);
+      max-width: 540px;
+      margin: 0 auto 32px;
+      font-size: 16px;
+    }
+    .final-cta .risk-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── MOBILE STICKY BOTTOM BAR ── */
+    .mobile-sticky {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--black);
+      padding: 12px 20px;
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
+    }
+    .mobile-sticky .btn-primary { width: 100%; text-align: center; padding: 14px; font-size: 16px; }
+    @media (max-width: 768px) {
+      .mobile-sticky { display: block; }
+      .sticky-header .btn-primary { display: none; }
+      body { padding-bottom: 70px; }
+    }
+
+    /* ── TYPEFORM MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: var(--white);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 700px;
+      height: 85vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      z-index: 10;
+      background: var(--gray-light);
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .modal-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header class="sticky-header">
+    <div class="logo">ForCyclers</div>
+    <button class="btn-primary" onclick="openModal()">Start Your Diagnostic →</button>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">For serious cyclists 40–60</div>
+    <h1>Break Your FTP Plateau<br>Without Adding <em>A Single Hour</em><br>To Your Training Week</h1>
+    <p class="subhead">Watch how the Hidden Signal Method times intensity so the same hours produce more watts in the next 12 weeks — and keep compounding for 6–12 months.</p>
+  </div>
+
+  <!-- VIDEO -->
+  <div class="video-wrap">
+    <div class="video-container">
+      <!-- REPLACE THIS with your Vimeo or Wistia embed -->
+      <!-- Example Vimeo: <iframe src="https://player.vimeo.com/video/YOUR_ID?autoplay=1&muted=1" allowfullscreen></iframe> -->
+      <div class="video-placeholder">
+        <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="white"><circle cx="12" cy="12" r="10" stroke-width="1.5"/><polygon points="10,8 16,12 10,16" fill="white"/></svg>
+        <span>[VSL VIDEO — embed Vimeo or Wistia here]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA UNDER VIDEO -->
+  <div class="cta-section">
+    <button class="btn-primary large" onclick="openModal()">Start Your Diagnostic →</button>
+    <p class="cta-label">15 minutes. Free. No pitch until we know we can help.</p>
+  </div>
+
+  <!-- URGENCY BAR -->
+  <div class="urgency-bar">
+    <strong>Limited call blocks open this week</strong> — PT, CT &amp; ET time zones. If the scheduler shows no times, join the waitlist.
+  </div>
+
+  <!-- CREDIBILITY TILES -->
+  <section class="full-width">
+    <div class="inner">
+      <div class="section-label">Results from the Hidden Signal Method</div>
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile-number">+30w</div>
+          <div class="tile-label">Average FTP gain inside the first 12 weeks</div>
+        </div>
+        <div class="tile">
+          <div class="tile-number">0</div>
+          <div class="tile-label">Extra training hours required</div>
+        </div>
+        <div class="tile">
+          <div class="tile-number">5</div>
+          <div class="tile-label">Biological signals TrainerRoad cannot see</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 SIGNALS -->
+  <section>
+    <div class="section-label">The mechanism</div>
+    <h2>The 5 Signals Your Training App Is Structurally Blind To</h2>
+    <p>TrainerRoad, Zwift, Garmin — every algorithm you've used coaches you on half the picture. Here's what they can't see.</p>
+    <ul class="signals">
+      <li>
+        <div class="signal-num">1</div>
+        <div class="signal-text">
+          <strong>Real Sleep Quality</strong>
+          <span>Not hours in bed — actual deep-cycle recovery read through your Garmin or Oura. Most athletes at 47 have far less than they think.</span>
+        </div>
+      </li>
+      <li>
+        <div class="signal-num">2</div>
+        <div class="signal-text">
+          <strong>Heart Rate Variability (HRV)</strong>
+          <span>The single biometric signal that predicted 7.3% more time-trial performance improvement in trained cyclists — while the fixed-plan group showed no gain. <em>(IJSPP, 2019)</em></span>
+        </div>
+      </li>
+      <li>
+        <div class="signal-num">3</div>
+        <div class="signal-text">
+          <strong>Life Load</strong>
+          <span>Work pressure, travel, family. At 47, your nervous system doesn't separate cycling stress from life stress — it stacks them. No app accounts for that.</span>
+        </div>
+      </li>
+      <li>
+        <div class="signal-num">4</div>
+        <div class="signal-text">
+          <strong>Subjective Recovery</strong>
+          <span>How you actually feel when you swing a leg over the bike. No algorithm asks. Good human coaches do — and they know when you're lying about feeling fine.</span>
+        </div>
+      </li>
+      <li>
+        <div class="signal-num">5</div>
+        <div class="signal-text">
+          <strong>Fueling Status</strong>
+          <span>Chronic under-eating on ride days is the most under-discussed plateau driver in men over 40. You're starving the exact cellular repair processes that build watts.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="full-width">
+    <div class="inner">
+      <div class="section-label">What happens when the signals get read</div>
+      <h2>Men Who Stopped Blaming Their Age</h2>
+      <div class="testimonials">
+
+        <div class="testimonial">
+          <div class="result">+30 watts in 3 months</div>
+          <p class="quote">"Five years stuck at 240. I'd tried everything — TrainerRoad, three different coaches, two winters on Zwift. The first time someone actually looked at my sleep data and my HRV together, everything clicked. Three months later I was at 270. Without adding a single ride."</p>
+          <div class="person">Mike · 47 · CEO · Austin, TX · Baseline FTP: 240w → 270w</div>
+        </div>
+
+        <div class="testimonial">
+          <div class="result">Dropping riders 20 years younger</div>
+          <p class="quote">"I was ready to quit group rides. Getting dropped every Saturday was killing my love for the sport. Now I'm the one setting the pace on those same climbs — against guys in their early thirties."</p>
+          <div class="person">Thomas · 52 · Former marathoner · Baseline FTP: [PROOF TO ADD] → [PROOF TO ADD]</div>
+        </div>
+
+        <div class="testimonial">
+          <div class="result">Enjoying cycling again — fully</div>
+          <p class="quote">"I almost quit. The humiliation of getting dropped by the same guys every weekend was getting to me. Now I ride more than I have in a decade — and the numbers are finally moving."</p>
+          <div class="person">Bryan · 47 · [LOCATION TO ADD] · [FTP DATA TO ADD]</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section>
+    <div class="section-label">Fit check</div>
+    <h2>Who This Is For — And Who It Isn't</h2>
+    <div class="for-grid">
+      <div class="for-block yes">
+        <h3>This is for you if…</h3>
+        <ul>
+          <li>You're 40–60 and have been riding seriously for years</li>
+          <li>Your FTP has stalled for 12+ months despite consistent training</li>
+          <li>You ride 5–12 hours per week and track your data</li>
+          <li>You use Garmin, Wahoo, or have a power meter</li>
+          <li>You want real, structured progress — not just more volume</li>
+          <li>You're willing to follow a plan and be consistent</li>
+        </ul>
+      </div>
+      <div class="for-block no">
+        <h3>This is NOT for you if…</h3>
+        <ul>
+          <li>You're just getting into cycling with no training history</li>
+          <li>You're looking for a quick fix with no commitment</li>
+          <li>You're not willing to share your data with a coach</li>
+          <li>You want to train 20+ hours per week like a pro</li>
+          <li>You're under 35 with no recovery or plateau issues</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM OVERVIEW -->
+  <section class="full-width">
+    <div class="inner">
+      <div class="section-label">The Second Wind program</div>
+      <h2>What Working With ForCyclers Actually Looks Like</h2>
+      <div class="program-items">
+
+        <div class="program-item">
+          <div class="program-icon">🔍</div>
+          <div class="program-item-text">
+            <strong>Signal Audit (your first call)</strong>
+            <span>We pull up your sleep data, Garmin, and TrainingPeaks history and read your 5 signals against the plateau you've been fighting. Most riders see exactly what's been hiding within the first 20 minutes.</span>
+          </div>
+        </div>
+
+        <div class="program-item">
+          <div class="program-icon">📊</div>
+          <div class="program-item-text">
+            <strong>Personalized TrainingPeaks plan</strong>
+            <span>Built around your actual schedule, your life load, and your signals. Syncs automatically with your Garmin, Apple Watch, or Wahoo. Your coach sees every ride in real time.</span>
+          </div>
+        </div>
+
+        <div class="program-item">
+          <div class="program-icon">🔄</div>
+          <div class="program-item-text">
+            <strong>Weekly signal-based adjustments</strong>
+            <span>If your HRV drops two days running, Wednesday's VO2max becomes Zone 2. If a work trip collapses your sleep, the week restructures. The plan bends around your life — not the other way around.</span>
+          </div>
+        </div>
+
+        <div class="program-item">
+          <div class="program-icon">🥗</div>
+          <div class="program-item-text">
+            <strong>Endurance nutrition support</strong>
+            <span>A registered dietitian specializing in masters athletes reviews your ride-day fueling and catches the silent under-eating pattern that's been limiting your cellular recovery.</span>
+          </div>
+        </div>
+
+        <div class="program-item">
+          <div class="program-icon">👥</div>
+          <div class="program-item-text">
+            <strong>Private community</strong>
+            <span>A curated group of men 40–60 going through this with you. Organized rides, shared data, accountability. Not a generic Discord.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="margin-top: 28px; padding: 16px; background: white; border-radius: 8px; border: 1px solid #e0e0e0; font-size: 14px; color: #555;">
+        <strong>Available as 6-month or 12-month programs.</strong> We only take 15 new athletes per coach per month. When a coach's slots are full, we either hold you for next month or match you with the right coach on our team.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="section-label">Common questions</div>
+    <h2>What Most Riders Ask Before Booking</h2>
+    <div class="faq">
+
+      <details>
+        <summary>I already use TrainerRoad. Why isn't it working?</summary>
+        <p>TrainerRoad has one of the best training algorithms on the market — and it's structurally blind to 5 biological signals that matter more for your progression at 40+ than the ones it can see. It's not broken. It just can't see you. That's the entire premise of this method.</p>
+      </details>
+
+      <details>
+        <summary>I don't have time to add more training hours.</summary>
+        <p>You won't. Every rider who's gone through Second Wind has maintained their current volume or reduced it. The method is about making the hours you already ride finally produce the adaptation your body is ready for — not stacking more stress on top of a system that's already over-reached.</p>
+      </details>
+
+      <details>
+        <summary>Will this work at my age? I'm in my early fifties.</summary>
+        <p>The Hidden Signal Method was specifically engineered for men between 40 and 60. The physiology is different at this stage — hormonal recovery, sleep architecture, life load. Every protocol in Second Wind accounts for that. Thomas was 52 and dropping riders 20 years younger inside 6 months.</p>
+      </details>
+
+      <details>
+        <summary>My schedule is unpredictable. I travel constantly.</summary>
+        <p>That's built into the system. When your signals tell us you're under-recovered from travel, we don't push intensity. The plan restructures around what your body can actually absorb that week — not what a static schedule says you should do.</p>
+      </details>
+
+      <details>
+        <summary>I have an injury history. Can I still do this?</summary>
+        <p>Bring it to the diagnostic call. We'll look at your history and be honest about whether Second Wind is the right fit. We don't take riders we don't think we can help.</p>
+      </details>
+
+      <details>
+        <summary>How is this different from hiring a random coach on TrainingPeaks?</summary>
+        <p>Most TrainingPeaks coaches build great plans. Very few read the 5 biological signals systematically every week and adjust training in real time around them. That specific method — not the plan design — is what's produced the gains we're seeing in men your age.</p>
+      </details>
+
+      <details>
+        <summary>What time zones are available for calls?</summary>
+        <p>We serve athletes in PT, CT, and ET. Our coaches schedule calls around your availability. Most of the work — plan adjustments, data review, signal reading — happens asynchronously, so you're not tied to a fixed weekly call time.</p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <div class="section-label" style="color: rgba(255,255,255,0.4);">The next step</div>
+    <h2>Find Out If Second Wind Is the Right Fit for Your Plateau</h2>
+    <p>15 minutes. We look at your specific situation — your plateau, your signals, your history — and map it against the Hidden Signal Method. You'll know exactly which of the 5 signals has been hiding from you, and whether this is the right program for where you are.</p>
+    <button class="btn-primary large" onclick="openModal()">Start Your Diagnostic →</button>
+    <p class="risk-note">Performance checkpoint at week 6 with full adjustments if you're off-track. We don't take riders we don't think we can help.</p>
+  </div>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <div class="mobile-sticky">
+    <button class="btn-primary" onclick="openModal()">Start Your Diagnostic →</button>
+  </div>
+
+  <!-- TYPEFORM MODAL -->
+  <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <!-- REPLACE the src below with your ForCyclers PROSPECT Typeform URL -->
+      <iframe id="typeform-iframe" src="" data-src="https://form.typeform.com/to/XXXXXXXX" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      const modal = document.getElementById('modal');
+      const iframe = document.getElementById('typeform-iframe');
+      if (!iframe.src || iframe.src === window.location.href) {
+        iframe.src = iframe.dataset.src;
+      }
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function closeModalOutside(e) {
+      if (e.target === document.getElementById('modal')) closeModal();
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+
+</body>
+</html>
