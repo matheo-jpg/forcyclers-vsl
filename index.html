@@ -573,7 +573,7 @@
   <!-- STICKY HEADER -->
   <header class="sticky-header">
     <div class="logo">ForCyclers <span>· Second Wind</span></div>
-    <button class="btn-primary" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
   </header>
 
   <!-- HERO -->
@@ -598,7 +598,7 @@
 
   <!-- PRIMARY CTA — directly under video, before proof -->
   <div class="cta-section">
-    <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
     <p class="cta-label" style="margin-top:8px;">15 minutes. Free. We don't take riders we don't believe we can help.</p>
   </div>
 
@@ -699,7 +699,7 @@
 
   <!-- PRIMARY CTA + SCARCITY — after proof + mechanism -->
   <div class="cta-section">
-    <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
     <p class="cta-capacity"><strong>Diagnostic calls are limited by coach capacity.</strong> We tried coaching more than 15 athletes per coach — signal quality dropped. Fifteen is the number where the method works. PT, CT &amp; ET time zones.</p>
     <p class="cta-label">15 minutes. Free. We don't take riders we don't believe we can help.</p>
   </div>
@@ -860,7 +860,7 @@
 
   <!-- SECTION CTA before FAQ -->
   <div class="section-cta">
-    <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
     <p class="cta-label" style="margin-top:8px;">15-minute diagnostic call. Free. No obligation.</p>
   </div>
 
@@ -915,7 +915,7 @@
     <div class="section-label" style="color:rgba(255,255,255,0.35);">The next step</div>
     <h2>Still blaming your age?<br>Or ready to find out what's actually<br>been hiding from you?</h2>
     <p>15 minutes. We look at your plateau, your signals, your history. You'll know exactly which of the 5 signals has been the limiter — and whether Second Wind is the right fit. If it isn't, we'll tell you that too.</p>
-    <button class="btn-primary large" onclick="openModal()">Book the 15 Minutes — We'll Name the Signal That's Been Stopping You →</button>
+    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">Book the 15 Minutes — We'll Name the Signal That's Been Stopping You →</button>
     <p class="risk-note">Performance checkpoint at week 12 with full plan adjustments if you're off track.</p>
   </div>
 
@@ -926,39 +926,10 @@
 
   <!-- MOBILE STICKY -->
   <div class="mobile-sticky">
-    <button class="btn-primary" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
   </div>
 
-  <!-- TYPEFORM MODAL -->
-  <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <!-- REPLACE data-src with your ForCyclers PROSPECT Typeform URL -->
-      <iframe id="typeform-iframe" src="" data-src="https://form.typeform.com/to/XXXXXXXX" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <script>
-    function openModal() {
-      const modal = document.getElementById('modal');
-      const iframe = document.getElementById('typeform-iframe');
-      if (!iframe.src || iframe.src === window.location.href) {
-        iframe.src = iframe.dataset.src;
-      }
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('modal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function closeModalOutside(e) {
-      if (e.target === document.getElementById('modal')) closeModal();
-    }
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeModal();
-    });
-  </script>
+  <script src="//embed.typeform.com/next/embed.js"></script>
 
 </body>
 </html>
