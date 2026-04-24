@@ -100,6 +100,25 @@
       line-height: 1.6;
     }
 
+    /* ── BELIEF BLOCK ── */
+    .belief-block {
+      background: var(--black);
+      color: var(--white);
+      padding: 36px 32px;
+      max-width: 800px;
+      margin: 32px auto 0;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .belief-block p {
+      color: rgba(255,255,255,0.8);
+      font-size: clamp(16px, 2.2vw, 19px);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .belief-block p:last-child { margin-bottom: 0; }
+    .belief-block strong { color: var(--white); font-size: clamp(18px, 2.5vw, 22px); }
+
     /* ── VIDEO ── */
     .video-wrap {
       max-width: 800px;
@@ -293,6 +312,13 @@
     }
     .signal-text strong { display: block; font-size: 15px; margin-bottom: 2px; }
     .signal-text span { font-size: 14px; color: var(--gray-text); }
+    .signal-cite {
+      display: block;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 6px;
+      font-style: italic;
+    }
 
     /* ── TESTIMONIALS ── */
     .testimonials { display: flex; flex-direction: column; gap: 24px; margin-top: 28px; }
@@ -498,9 +524,16 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="eyebrow">Serious cyclists 40–60</div>
+    <div class="eyebrow">For cyclists who've done everything right — and stopped improving</div>
     <h1>Break Your FTP Plateau<br>in <em>12 Weeks</em><br>Without Adding Hours</h1>
-    <p class="subhead">Our 5-Signal Timing Model syncs intensity to your real recovery so the same weekly hours produce more watts — and keep compounding for 6–12 months.</p>
+    <p class="subhead">The same weekly hours can produce more watts — if intensity is timed to when your body can actually absorb it. Most training apps can't make that call. Here's why, and what we do instead.</p>
+  </div>
+
+  <!-- BELIEF BLOCK -->
+  <div class="belief-block">
+    <p>Your FTP isn't stuck because of your age. It isn't stuck because of your effort.</p>
+    <p>It's stuck because there are 5 biological signals that determine when your body can absorb hard training — and your algorithm can't read any of them.</p>
+    <p><strong>We do. Every week.</strong></p>
   </div>
 
   <!-- VIDEO -->
@@ -555,7 +588,7 @@
 
   <!-- URGENCY -->
   <div class="urgency-bar">
-    <strong>Limited call blocks open this week</strong> — PT, CT &amp; ET time zones. If the scheduler shows no times, join the waitlist.
+    <strong>Each coach works with a maximum of 15 athletes.</strong> When slots fill, we hold you for the next opening. PT, CT &amp; ET time zones only.
   </div>
 
   <!-- CRED TILES -->
@@ -565,15 +598,15 @@
       <div class="tiles">
         <div class="tile">
           <div class="tile-number">+28w</div>
-          <div class="tile-label">Median FTP gain in 12 weeks at equal weekly hours</div>
+          <div class="tile-label">Median FTP gain across our athlete cohort in 12 weeks — at identical weekly training hours</div>
         </div>
         <div class="tile">
           <div class="tile-number">0</div>
-          <div class="tile-label">Extra training hours. Smarter timing, not more volume.</div>
+          <div class="tile-label">Extra training hours required. Smarter timing of the hours you already ride.</div>
         </div>
         <div class="tile">
           <div class="tile-number">5</div>
-          <div class="tile-label">Recovery signals your training app doesn't track — integrated inside TrainingPeaks</div>
+          <div class="tile-label">Recovery signals your training app is structurally blind to — integrated inside TrainingPeaks</div>
         </div>
       </div>
     </div>
@@ -585,46 +618,54 @@
     <h2>The 5 Signals Your Training App Is Structurally Blind To</h2>
     <p>TrainerRoad, Zwift, Garmin — every algorithm coaches you on half the picture. Here's what they can't see, and what we read every week instead.</p>
     <ul class="signals">
+
       <li>
         <div class="signal-num">1</div>
         <div class="signal-text">
-          <strong>Real Sleep Quality</strong>
-          <span>Not hours in bed — actual deep-cycle recovery via Garmin or Oura. Most athletes at 47 have far less than they think. We read the number before we touch your plan.</span>
+          <strong>Life Load</strong>
+          <span>Work pressure, travel, family demands. At 47, your nervous system stacks cycling stress and life stress into one single recovery bill. No algorithm accounts for that. When you fly back from a 3-day work trip and your Thursday session shows "High Load," TrainerRoad still pushes VO2max intervals. We push Zone 2. That difference compounds over months.</span>
         </div>
       </li>
+
       <li>
         <div class="signal-num">2</div>
         <div class="signal-text">
           <strong>Heart Rate Variability (HRV)</strong>
-          <span>HRV-guided training produced 7.3% more time-trial improvement than fixed plans in trained cyclists. Same hours. Same effort. One variable: whether the plan adapted to the rider. <em>(IJSPP, 2019)</em></span>
+          <span>Your daily HRV trend tells us whether your nervous system is primed for intensity or quietly fighting to recover. When we align hard sessions with high-HRV days and protect low-HRV days from overreach, adaptation accelerates significantly — without adding a single hour of riding.</span>
+          <em class="signal-cite">Research basis: HRV-guided training produced 7.3% more time-trial improvement than fixed plans in trained cyclists at equal volume. (IJSPP, 2019) — We apply the same principle, calibrated specifically to masters athletes.</em>
         </div>
       </li>
+
       <li>
         <div class="signal-num">3</div>
         <div class="signal-text">
-          <strong>Life Load</strong>
-          <span>Work pressure, travel, family. At 47, your nervous system stacks cycling stress and life stress together. No algorithm accounts for that. We do.</span>
+          <strong>Real Sleep Quality</strong>
+          <span>Not hours in bed — actual deep-cycle recovery via your Garmin or Oura. Most athletes over 45 have substantially less restorative sleep than they realize, and almost none of them know it's the primary reason their high-intensity sessions aren't converting to fitness. We read the number before we touch your plan for the week.</span>
         </div>
       </li>
+
       <li>
         <div class="signal-num">4</div>
         <div class="signal-text">
-          <strong>Subjective Recovery</strong>
-          <span>How you actually feel when you swing a leg over the bike. No algorithm asks. Good human coaches do — and after a few weeks, they know when you're lying about feeling fine.</span>
+          <strong>Fueling Status</strong>
+          <span>Chronic under-eating on ride days is the most under-discussed plateau driver in men over 40. When you consistently under-fuel hard sessions, you starve the exact cellular repair processes that build watts. The gains you're training for are happening in the kitchen, not on the bike — and most riders are blocking them without knowing it.</span>
         </div>
       </li>
+
       <li>
         <div class="signal-num">5</div>
         <div class="signal-text">
-          <strong>Fueling Status</strong>
-          <span>Chronic under-eating on ride days is the most under-discussed plateau driver in men over 40. You're starving the exact cellular repair processes that build watts.</span>
+          <strong>Subjective Recovery</strong>
+          <span>How you actually feel when you swing a leg over the bike. No algorithm asks. Good coaches do — and after a few weeks, they know exactly when you're telling them you feel fine when you don't. That honesty gap is where most self-coached plans break down silently.</span>
         </div>
       </li>
+
     </ul>
   </section>
 
   <div class="section-cta">
-    <button class="btn-primary large" onclick="openModal()">Start Your Diagnostic →</button>
+    <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
+    <p class="cta-label" style="margin-top:8px;">15-minute diagnostic call. Free. No obligation.</p>
   </div>
 
   <!-- TESTIMONIALS -->
@@ -641,14 +682,14 @@
         </div>
 
         <div class="testimonial">
-          <div class="result">275 → 301w in 10 weeks. Now dropping riders 20 years younger.</div>
-          <p class="quote">"I was ready to quit group rides. Getting dropped every Saturday was killing my love for cycling. Now I'm the one setting the pace on those same climbs — against guys in their early thirties."</p>
+          <div class="result">275 → 301w in 10 weeks. Now setting the pace on climbs that used to drop him.</div>
+          <p class="quote">"Four years with the same Saturday group. I knew every climb, every acceleration point — and I kept getting dropped at the same spot, by the same guys, ten or fifteen years younger than me. When the coach looked at my HRV alongside my work travel schedule, he said I'd been training through a chronically stressed nervous system for months. Three weeks after we corrected it, I rode away from the group on the climb that had been dropping me all year. That was week 10. 275 to 301."</p>
           <div class="person">Thomas · 52 · Former marathoner · Baseline 275w → 301w · 10 weeks</div>
         </div>
 
         <div class="testimonial">
-          <div class="result">258 → 286w in 12 weeks. Enjoying every ride again.</div>
-          <p class="quote">"I almost quit. The humiliation of getting dropped by the same guys every weekend was getting to me. Now I ride more than I have in a decade — and for the first time in years, the numbers are moving."</p>
+          <div class="result">258 → 286w in 12 weeks. First time in years the numbers moved.</div>
+          <p class="quote">"I'd been in this mode where every ride felt like a test I was failing. Same intervals, same routes, same flat numbers for four years. I was logging the miles and going through the motions. The first week they adjusted my plan based on the signals, I actually did less volume. And I felt better than I had in two years. Six weeks later my power started moving for the first time. Now I look forward to every single ride again."</p>
           <div class="person">Bryan · 47 · Baseline 258w → 286w · 12 weeks</div>
         </div>
 
@@ -669,20 +710,24 @@
           <li>You ride 5–12 hours/week and track your data</li>
           <li>You use Garmin, Wahoo, or have a power meter</li>
           <li>You want structured progress — not just more volume</li>
-          <li>You're willing to follow a plan and share your data</li>
+          <li>You're willing to share weekly performance data with your coach</li>
         </ul>
       </div>
       <div class="for-block no">
         <h3>This is NOT for you if…</h3>
         <ul>
-          <li>You're new to cycling with no training history</li>
-          <li>You want a quick fix with no commitment</li>
-          <li>You're not willing to share data with a coach</li>
+          <li>You're not willing to share data with a coach every week</li>
+          <li>Your FTP is still improving on its own without intervention</li>
+          <li>You're new to cycling with no structured training history</li>
           <li>You want to train 20+ hours/week like a pro</li>
-          <li>You're under 35 with no recovery or plateau issues</li>
+          <li>You're looking for a static plan you can follow without check-ins</li>
         </ul>
       </div>
     </div>
+    <p style="margin-top:24px; padding:16px; background:var(--gray-light); border-radius:8px; font-size:14px; color:#555; border-left:3px solid var(--accent);">
+      <strong>"Your inconsistency isn't the problem. A plan that can't absorb it is."</strong><br>
+      Nearly every rider who's gone through Second Wind came in worried about their schedule. The ones who struggled weren't the ones who missed a week — they were the ones who didn't share their data when they did.
+    </p>
   </section>
 
   <!-- PROGRAM OVERVIEW -->
@@ -694,15 +739,15 @@
       <div class="timeline">
         <div class="timeline-item">
           <div class="period">Days 1–14</div>
-          <div class="outcome">Signal Audit + baseline read. Your coach maps your 5 signals, identifies the hidden limiter, and builds your personalized TrainingPeaks plan around your real schedule.</div>
+          <div class="outcome">Full signal audit. Your coach maps your 5 signals — HRV baseline, sleep architecture, life calendar, fueling patterns. Identifies the primary limiter. Builds your personalized TrainingPeaks plan around your real schedule and real recovery capacity.</div>
         </div>
         <div class="timeline-item">
           <div class="period">Weeks 3–8</div>
-          <div class="outcome">Weekly signal-based adjustments. Bad HRV night → VO2max becomes Zone 2. Work trip → week restructures. The plan bends to your life, not the other way around.</div>
+          <div class="outcome">Weekly signal-based adjustments. Bad HRV night → VO2max becomes Zone 2. Work trip → week restructures before you feel the damage. The plan bends around your life, not the other way around. Most riders feel a shift in energy within 3 weeks.</div>
         </div>
         <div class="timeline-item">
           <div class="period">Weeks 9–12</div>
-          <div class="outcome">Performance checkpoint. FTP test with your coach. If you're off-track, full plan adjustment. Most riders see their first meaningful watt gain here.</div>
+          <div class="outcome">Performance checkpoint. FTP test with your coach. Full plan adjustment if you're off track. This is where the watt gains become visible in the data — and where most riders have their first conversation about continuing into the 6-month program.</div>
         </div>
       </div>
 
@@ -711,34 +756,34 @@
           <div class="program-icon">📊</div>
           <div class="program-item-text">
             <strong>TrainingPeaks plan synced to your devices</strong>
-            <span>Garmin, Apple Watch, or Wahoo. Your coach sees every ride, every data point, every signal trend in real time. No manual logging.</span>
+            <span>Garmin, Apple Watch, or Wahoo. Your coach sees every ride, every data point, every signal trend in real time. No manual logging required on your end.</span>
           </div>
         </div>
         <div class="program-item">
           <div class="program-icon">🥗</div>
           <div class="program-item-text">
-            <strong>Endurance nutrition support</strong>
-            <span>A registered dietitian specializing in masters athletes reviews your ride-day fueling and catches the under-eating pattern that's been limiting your recovery.</span>
+            <strong>Endurance nutrition review included</strong>
+            <span>A nutrition specialist who works specifically with masters cyclists reviews your ride-day fueling and identifies the under-eating pattern that has been limiting your recovery. This is included in full program enrollment.</span>
           </div>
         </div>
         <div class="program-item">
           <div class="program-icon">👥</div>
           <div class="program-item-text">
-            <strong>Private community — men 40–60 only</strong>
-            <span>Organized rides, shared data, accountability. A curated group, not a generic Discord.</span>
+            <strong>Private group — men 40–60 only</strong>
+            <span>Organized rides, shared signal data, week-by-week accountability. Curated membership — not open enrollment.</span>
           </div>
         </div>
       </div>
 
       <p style="margin-top:24px; padding:16px; background:white; border-radius:8px; border:1px solid #e0e0e0; font-size:14px; color:#555;">
-        <strong>Available as 6-month or 12-month programs.</strong> We take 15 new athletes per coach per month. When a coach's slots are full, we hold you for next month or match you with the right coach on our team.
+        <strong>Available as 6-month or 12-month programs.</strong> Each coach takes a maximum of 15 athletes at a time. When a coach's slots are full, we hold you for the next opening or match you with a coach on our team who fits your schedule.
       </p>
     </div>
   </section>
 
   <div class="section-cta">
-    <button class="btn-primary large" onclick="openModal()">Start Your Diagnostic →</button>
-    <p class="cta-label" style="margin-top:10px;">Limited call blocks — PT, CT &amp; ET time zones</p>
+    <button class="btn-primary large" onclick="openModal()">Book Your Free Diagnostic Call →</button>
+    <p class="cta-label" style="margin-top:10px;">PT, CT &amp; ET time zones · Limited slots per coach</p>
   </div>
 
   <!-- FAQ -->
@@ -749,37 +794,37 @@
 
       <details>
         <summary>I already use TrainerRoad. Why is it not working?</summary>
-        <p>TrainerRoad has one of the best algorithms on the market — and it's structurally blind to the 5 signals that matter most for your body at 40+. It can only adjust based on what it can measure. Sleep quality, HRV, life load, subjective recovery, fueling — none of these feed its model. That's the entire premise of the 5-Signal Timing Model. The problem isn't your effort. It's your inputs.</p>
+        <p>TrainerRoad has one of the best algorithms on the market — and it is structurally blind to the 5 signals that matter most for your body at 40+. It can only adjust based on what it can measure: power output, ramp rate, performance tests. Sleep quality, HRV, life load, subjective recovery, fueling — none of these feed its model. The problem is not your effort. It is the inputs your plan is missing.</p>
       </details>
 
       <details>
         <summary>I don't have time to add more training hours.</summary>
-        <p>You won't. Every rider in the program has maintained their current volume or reduced it. The method is about making the hours you already ride produce the adaptation your body is ready for — not stacking more stress on a system that's already over-reached.</p>
+        <p>You will not add any. Every rider in the program has maintained their current volume or reduced it during the first phase. The method is about making the hours you already ride produce the adaptation your body is ready for — not stacking more stress on a system that is already over-reached.</p>
       </details>
 
       <details>
         <summary>Will this work at my age? I'm in my early fifties.</summary>
-        <p>The 5-Signal Timing Model was built specifically for men 40–60. Hormonal recovery, sleep architecture, life load — all of it is different at this stage. Every protocol accounts for that. Thomas was 52 and went from 275 to 301w in 10 weeks.</p>
+        <p>The 5-Signal Timing Model was built specifically for men 40–60. Hormonal recovery, sleep architecture, life load — all of it is different at this stage, and every protocol accounts for it from the start. Thomas was 52 and went from 275 to 301w in 10 weeks.</p>
       </details>
 
       <details>
         <summary>My schedule is unpredictable. I travel constantly.</summary>
-        <p>Built into the system. When your signals show you're under-recovered from travel, we don't push intensity. The plan restructures around what your body can absorb that week — not what a static schedule says.</p>
+        <p>Built into the system. Travel is one of the primary life load signals we track. When your signals show you are under-recovered from travel, we restructure that week before it becomes a hole in your fitness — not after you feel it on the bike.</p>
       </details>
 
       <details>
         <summary>What if I fall behind or miss weeks?</summary>
-        <p>The plan bends around your life. Nearly every rider who's gone through Second Wind came in with that fear. The ones who struggled weren't the ones who missed a week — they were the ones who didn't share their data. Your inconsistency isn't the problem. A plan that can't absorb it is.</p>
+        <p>The plan is designed to absorb it. Missing a week is not the problem — a rigid plan that penalizes missed weeks is. The only thing that breaks the system is not sharing your data when life gets in the way. Your coach needs signal visibility to adjust. Give them that and inconsistency becomes manageable.</p>
       </details>
 
       <details>
         <summary>How is this different from a random coach on TrainingPeaks?</summary>
-        <p>Most coaches build solid plans. Very few read all 5 biological signals systematically every week and adjust training in real time around them. That specific method — not the plan design — is what's producing the gains we're seeing in men your age.</p>
+        <p>Most coaches build solid plans. Very few read all 5 biological signals systematically every single week and adjust intensity in real time around them. That specific method — not the plan design — is what is producing the gains we are seeing in men your age who had already worked with good coaches before.</p>
       </details>
 
       <details>
         <summary>What time zones are covered?</summary>
-        <p>PT, CT, and ET. Most of the work — plan adjustments, signal reviews, data reading — happens asynchronously. You're not locked into a fixed weekly call time. Everything fits around your schedule.</p>
+        <p>PT, CT, and ET. Plan adjustments, signal reviews, and data reading all happen in the background — no weekly call time to protect on your calendar. Everything fits around your schedule.</p>
       </details>
 
     </div>
@@ -789,9 +834,9 @@
   <div class="final-cta">
     <div class="section-label" style="color:rgba(255,255,255,0.35);">The next step</div>
     <h2>Still blaming your age?<br>Or ready to find out what's actually<br>been hiding from you?</h2>
-    <p>15 minutes. We look at your plateau, your signals, your history. You'll know exactly which of the 5 signals has been the limiter — and whether Second Wind is the right fit. If it isn't, we'll tell you honestly.</p>
-    <button class="btn-primary large" onclick="openModal()">Start Your Diagnostic →</button>
-    <p class="risk-note">Performance checkpoint at week 6 with full adjustments if you're off-track. We don't take riders we don't think we can help.</p>
+    <p>15 minutes. We look at your plateau, your signals, your history. You will know exactly which of the 5 signals has been the limiter — and whether Second Wind is the right fit. If it is not, we will tell you that too.</p>
+    <button class="btn-primary large" onclick="openModal()">Find Out What's Been Hiding From You →</button>
+    <p class="risk-note">Performance checkpoint at week 12 with full plan adjustments if you are off track. We do not take riders we do not believe we can help.</p>
   </div>
 
   <!-- DISCLAIMER -->
