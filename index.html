@@ -100,6 +100,32 @@
       line-height: 1.6;
     }
 
+    /* ── SCARCITY BAR ── */
+    .scarcity-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin: 14px auto 6px;
+    }
+    .scarcity-slots {
+      display: flex;
+      gap: 5px;
+    }
+    .slot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .slot.filled { background: var(--red); }
+    .slot.open { background: var(--green); }
+    .scarcity-text {
+      font-size: 13px;
+      color: var(--gray-text);
+    }
+    .scarcity-text strong { color: var(--black); }
+
     /* ── BELIEF BLOCK ── */
     .belief-block {
       background: var(--black);
@@ -529,13 +555,6 @@
     <p class="subhead">The same weekly hours can produce more watts — if intensity is timed to when your body can actually absorb it. Most training apps can't make that call. Here's why, and what we do instead.</p>
   </div>
 
-  <!-- BELIEF BLOCK -->
-  <div class="belief-block">
-    <p>Your FTP isn't stuck because of your age. It isn't stuck because of your effort.</p>
-    <p>It's stuck because there are 5 biological signals that determine when your body can absorb hard training — and your algorithm can't read any of them.</p>
-    <p><strong>We do. Every week.</strong></p>
-  </div>
-
   <!-- VIDEO -->
   <div class="video-wrap">
     <div class="video-container">
@@ -548,10 +567,27 @@
     </div>
   </div>
 
-  <!-- CTA UNDER VIDEO -->
+  <!-- CTA UNDER VIDEO + SCARCITY -->
   <div class="cta-section">
     <button class="btn-primary large" onclick="openModal()">Start Your Diagnostic →</button>
+    <div class="scarcity-bar">
+      <span class="scarcity-slots">
+        <span class="slot filled"></span><span class="slot filled"></span><span class="slot filled"></span>
+        <span class="slot filled"></span><span class="slot filled"></span><span class="slot filled"></span>
+        <span class="slot filled"></span><span class="slot filled"></span><span class="slot filled"></span>
+        <span class="slot filled"></span><span class="slot filled"></span>
+        <span class="slot open"></span><span class="slot open"></span><span class="slot open"></span><span class="slot open"></span>
+      </span>
+      <span class="scarcity-text"><strong>4 diagnostic spots remaining this week</strong> — each coach takes 15 athletes maximum</span>
+    </div>
     <p class="cta-label">15 minutes. Free. We only take riders we know we can help.</p>
+  </div>
+
+  <!-- BELIEF BLOCK — placed after VSL per Jeremy Haynes structure -->
+  <div class="belief-block">
+    <p>Your FTP isn't stuck because of your age. It isn't stuck because of your effort.</p>
+    <p>It's stuck because there are 5 biological signals that determine when your body can absorb hard training — and <strong style="color:white;">TrainerRoad, Zwift, and Garmin</strong> can't read any of them.</p>
+    <p><strong>We do. Every week.</strong></p>
   </div>
 
   <!-- PROOF STRIP -->
