@@ -530,23 +530,19 @@
       body { padding-bottom: 70px; }
     }
 
-    /* ── APPLY SECTION ── */
-    .apply-section {
-      background: var(--gray-light);
-      padding: 64px 24px;
-    }
-    .apply-section .inner {
+    /* ── APPLY INLINE ── */
+    .apply-inline {
       max-width: 800px;
       margin: 0 auto;
+      padding: 0 24px 40px;
     }
-    .apply-section h2 { margin-bottom: 8px; }
-    .apply-section > .inner > p {
+    .apply-inline [data-tf-live] { min-height: 480px; }
+    .apply-note {
+      text-align: center;
+      font-size: 12px;
       color: var(--gray-text);
-      font-size: 15px;
-      margin-bottom: 28px;
-    }
-    .apply-section [data-tf-live] {
-      min-height: 480px;
+      margin-top: 8px;
+      margin-bottom: 0;
     }
   </style>
 </head>
@@ -578,10 +574,10 @@
     </div>
   </div>
 
-  <!-- PRIMARY CTA — directly under video, before proof -->
-  <div class="cta-section">
-    <button class="btn-primary large" onclick="scrollToApply()">See If You Qualify →</button>
-    <p class="cta-label" style="margin-top:8px;">15 minutes. Free. We don't take riders we don't believe we can help.</p>
+  <!-- TYPEFORM — embedded directly under video, no button -->
+  <div id="apply" class="apply-inline">
+    <div data-tf-live="01KQ0879ZTH00RDYJCRQQ891V7"></div>
+    <p class="apply-note">15 minutes. Free. We don't take riders we don't believe we can help. PT, CT &amp; ET time zones.</p>
   </div>
 
   <!-- PROOF STRIP — 3 mini-cases directly under video -->
@@ -839,16 +835,6 @@
       </div>
     </div>
   </section>
-
-  <!-- INLINE FORM — embedded directly on page -->
-  <div id="apply" class="apply-section">
-    <div class="inner">
-      <div class="section-label">Start your diagnostic</div>
-      <h2>See If You Qualify</h2>
-      <p>15 minutes. Free. We don't take riders we don't believe we can help. PT, CT &amp; ET time zones.</p>
-      <div data-tf-live="01KQ0879ZTH00RDYJCRQQ891V7"></div>
-    </div>
-  </div>
 
   <!-- SECTION CTA before FAQ -->
   <div class="section-cta">
