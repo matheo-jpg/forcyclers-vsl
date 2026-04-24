@@ -530,42 +530,24 @@
       body { padding-bottom: 70px; }
     }
 
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(0,0,0,0.75);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal-box {
-      background: var(--white);
-      border-radius: 12px;
-      width: 100%;
-      max-width: 700px;
-      height: 85vh;
-      position: relative;
-      overflow: hidden;
-    }
-    .modal-close {
-      position: absolute;
-      top: 12px; right: 14px;
-      z-index: 10;
+    /* ── APPLY SECTION ── */
+    .apply-section {
       background: var(--gray-light);
-      border: none;
-      border-radius: 50%;
-      width: 32px; height: 32px;
-      font-size: 18px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 64px 24px;
     }
-    .modal-box iframe { width: 100%; height: 100%; border: none; }
+    .apply-section .inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .apply-section h2 { margin-bottom: 8px; }
+    .apply-section > .inner > p {
+      color: var(--gray-text);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+    .apply-section [data-tf-live] {
+      min-height: 480px;
+    }
   </style>
 </head>
 <body>
@@ -573,7 +555,7 @@
   <!-- STICKY HEADER -->
   <header class="sticky-header">
     <div class="logo">ForCyclers <span>· Second Wind</span></div>
-    <button class="btn-primary" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
+    <button class="btn-primary" onclick="scrollToApply()">See If You Qualify →</button>
   </header>
 
   <!-- HERO -->
@@ -598,7 +580,7 @@
 
   <!-- PRIMARY CTA — directly under video, before proof -->
   <div class="cta-section">
-    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
+    <button class="btn-primary large" onclick="scrollToApply()">See If You Qualify →</button>
     <p class="cta-label" style="margin-top:8px;">15 minutes. Free. We don't take riders we don't believe we can help.</p>
   </div>
 
@@ -699,7 +681,7 @@
 
   <!-- PRIMARY CTA + SCARCITY — after proof + mechanism -->
   <div class="cta-section">
-    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
+    <button class="btn-primary large" onclick="scrollToApply()">See If You Qualify →</button>
     <p class="cta-capacity"><strong>Diagnostic calls are limited by coach capacity.</strong> We tried coaching more than 15 athletes per coach — signal quality dropped. Fifteen is the number where the method works. PT, CT &amp; ET time zones.</p>
     <p class="cta-label">15 minutes. Free. We don't take riders we don't believe we can help.</p>
   </div>
@@ -858,9 +840,19 @@
     </div>
   </section>
 
+  <!-- INLINE FORM — embedded directly on page -->
+  <div id="apply" class="apply-section">
+    <div class="inner">
+      <div class="section-label">Start your diagnostic</div>
+      <h2>See If You Qualify</h2>
+      <p>15 minutes. Free. We don't take riders we don't believe we can help. PT, CT &amp; ET time zones.</p>
+      <div data-tf-live="01KQ0879ZTH00RDYJCRQQ891V7"></div>
+    </div>
+  </div>
+
   <!-- SECTION CTA before FAQ -->
   <div class="section-cta">
-    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
+    <button class="btn-primary large" onclick="scrollToApply()">See If You Qualify →</button>
     <p class="cta-label" style="margin-top:8px;">15-minute diagnostic call. Free. No obligation.</p>
   </div>
 
@@ -915,7 +907,7 @@
     <div class="section-label" style="color:rgba(255,255,255,0.35);">The next step</div>
     <h2>Still blaming your age?<br>Or ready to find out what's actually<br>been hiding from you?</h2>
     <p>15 minutes. We look at your plateau, your signals, your history. You'll know exactly which of the 5 signals has been the limiter — and whether Second Wind is the right fit. If it isn't, we'll tell you that too.</p>
-    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">Book the 15 Minutes — We'll Name the Signal That's Been Stopping You →</button>
+    <button class="btn-primary large" onclick="scrollToApply()">Book the 15 Minutes — We'll Name the Signal That's Been Stopping You →</button>
     <p class="risk-note">Performance checkpoint at week 12 with full plan adjustments if you're off track.</p>
   </div>
 
@@ -926,10 +918,15 @@
 
   <!-- MOBILE STICKY -->
   <div class="mobile-sticky">
-    <button class="btn-primary" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-opacity="100" data-tf-iframe-props="title=ForCyclers Diagnostic" data-tf-transitive-search-params data-tf-medium="snippet">See If You Qualify →</button>
+    <button class="btn-primary" onclick="scrollToApply()">See If You Qualify →</button>
   </div>
 
   <script src="//embed.typeform.com/next/embed.js"></script>
+  <script>
+    function scrollToApply() {
+      document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
