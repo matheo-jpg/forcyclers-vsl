@@ -99,6 +99,14 @@
       margin: 0 auto;
       line-height: 1.6;
     }
+    .hero .thesis {
+      font-size: clamp(17px, 2.5vw, 21px);
+      font-weight: 700;
+      color: var(--black);
+      margin: 20px auto 0;
+      max-width: 560px;
+      line-height: 1.4;
+    }
 
     /* ── VIDEO — tight top to close the gap ── */
     .video-wrap {
@@ -465,7 +473,7 @@
   <!-- STICKY HEADER -->
   <header class="sticky-header">
     <div class="logo">ForCyclers</div>
-    <button class="btn-primary" onclick="openModal()">Start Your Diagnostic →</button>
+    <button class="btn-primary" onclick="openModal()">See If You Qualify →</button>
   </header>
 
   <!-- HERO -->
@@ -473,6 +481,7 @@
     <div class="eyebrow">For cyclists who've done everything right — and stopped improving</div>
     <h1>Your FTP Hasn't Moved.<br>It's Not Your Training.<br>It's the <em>5 Signals</em> No Training App Can Read.</h1>
     <p class="subhead">The same weekly hours can produce more watts — if intensity is timed to when your body can actually absorb it. Most training apps can't make that call.</p>
+    <p class="thesis">Your FTP plateau isn't a training problem. It's a timing problem.</p>
   </div>
 
   <!-- VIDEO — tight gap from subhead -->
@@ -489,14 +498,14 @@
 
   <!-- CTA UNDER VIDEO -->
   <div class="cta-section">
-    <button class="btn-primary large" onclick="openModal()">Start Your Diagnostic →</button>
+    <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
     <p class="cta-capacity"><strong>Diagnostic calls are limited by coach capacity.</strong> We tried coaching more than 15 athletes per coach — signal quality dropped. Fifteen is the number where the method works. PT, CT &amp; ET time zones.</p>
     <p class="cta-label">15 minutes. Free. We don't take riders we don't believe we can help.</p>
   </div>
 
   <!-- BELIEF BLOCK -->
   <div class="belief-block">
-    <p>You've probably already done the obvious things. TrainerRoad. A structured plan. Two coaches. And you're still at the same number.</p>
+    <p>You've probably already done the obvious things. TrainerRoad. A structured plan. Two coaches. And you're still at the same number. Not because you weren't consistent enough — but because you were consistent at the wrong moments.</p>
     <p>It's stuck because there are 5 biological signals that determine when your body can absorb hard training. Your Tuesday board meeting factors into your TrainerRoad plan at exactly zero. Same for last week's red-eye. Same for the four nights of broken sleep this month.</p>
     <p><strong>We read all five. Every week.</strong></p>
   </div>
@@ -506,6 +515,7 @@
     <div class="section-label">The mechanism</div>
     <h2>The 5 Signals Your Training App Is Structurally Blind To</h2>
     <p>After coaching cyclists who were doing everything right — following their apps to the letter, logging every ride, tracking every watt — the power files and coaching logs kept pointing to the same pattern. The load wasn't the problem. Five specific inputs were missing. None of which any algorithm had been built to read.</p>
+    <p>What makes the difference isn't reading any one signal in isolation — coaches have tracked HRV and sleep for years. It's reading all five together, every week, and adjusting your intensity timing before you feel the damage. That specific loop — five signals, weekly, translated into plan changes before the hole appears — is what TrainerRoad's algorithm isn't built to do. And it's why the same training hours start producing different results.</p>
     <p>Here's what they are.</p>
     <ul class="signals">
 
@@ -522,7 +532,7 @@
         <div class="signal-text">
           <strong>Heart Rate Variability (HRV)</strong>
           <span>Your daily HRV trend tells us whether your nervous system is primed for intensity or quietly fighting to recover. When we align hard sessions with high-HRV days and protect low-HRV days from overreach, adaptation accelerates — without adding a single hour of riding.</span>
-          <em class="signal-cite">Research basis: HRV-guided training produced 7.3% more time-trial improvement than fixed plans in trained cyclists at equal volume. (IJSPP, 2019) — Applied to athletes over 40 in our coaching practice.</em>
+          <em class="signal-cite">Research basis: HRV-guided training produced 7.3% more time-trial improvement than fixed plans in trained cyclists at equal volume. (IJSPP, 2019)</em>
         </div>
       </li>
 
@@ -547,6 +557,7 @@
         <div class="signal-text">
           <strong>The Feeling You Ignore</strong>
           <span>How you actually feel when you swing a leg over the bike. No algorithm asks. Good coaches do — and after a few weeks, they know exactly when you're telling them you feel fine when you don't. That honesty gap is where most self-coached plans break down silently.</span>
+          <em class="signal-cite">Coaching observation: the days athletes report feeling fine but show suppressed HRV are consistently the days that generate the most overreach damage. The subjective signal predicts the objective one.</em>
         </div>
       </li>
 
@@ -580,7 +591,7 @@
         <div class="testimonial">
           <div class="result">258 → 286w in 12 weeks. Four years of flat numbers — then they moved.</div>
           <p class="quote">"I'd been in this mode where every ride felt like a test I was failing. Same intervals, same routes, same flat numbers for four years. I was logging the miles and going through the motions. The first week they adjusted my plan based on the signals, I actually did less volume. And I felt better than I had in two years. Six weeks later my power started moving for the first time. Now I look forward to every single ride again."</p>
-          <div class="person">Bryan · 47 · Baseline 258w → 286w · 12 weeks</div>
+          <div class="person">Bryan · 47 · Project Manager · Portland, OR · Baseline 258w → 286w · 12 weeks</div>
         </div>
 
       </div>
@@ -593,7 +604,7 @@
     <div class="tiles">
       <div class="tile">
         <div class="tile-number">+28w</div>
-        <div class="tile-label">Median FTP gain across our coached athletes in 12 weeks, at unchanged training hours</div>
+        <div class="tile-label">Median FTP gain — our coached athletes, 12 weeks, unchanged training hours <!-- TODO: add sample size N --></div>
       </div>
       <div class="tile">
         <div class="tile-number">0</div>
@@ -716,7 +727,7 @@
 
         <details>
           <summary>How is this different from working with an experienced TrainingPeaks coach?</summary>
-          <p>Very few coaches read all 5 biological signals systematically — every week, in real time — and adjust intensity around them. Most build excellent plans and stop there. That specific method, not the plan design, is what's producing the gains we're seeing in men your age who'd already worked with good coaches before.</p>
+          <p>Most coaches — even good TrainingPeaks coaches — adjust your plan every 4–6 weeks based on test results. We adjust it every 7 days, based on signals that only appeared that week: your HRV on Wednesday, your sleep quality after Tuesday's board meeting, how you actually felt on Thursday's ride. That weekly signal loop is the specific thing no algorithm and very few coaches are built to do — and it's what's producing the gains in men who'd already worked with good coaches and stopped improving.</p>
         </details>
 
         <details>
@@ -726,7 +737,7 @@
 
         <details>
           <summary>What if I fall behind or miss weeks?</summary>
-          <p>The plan is designed to absorb it. Missing a week isn't the problem — a rigid plan that penalizes missed weeks is. The only thing that breaks the system is not sharing your data when life gets in the way. Your coach needs signal visibility to adjust. Give them that and inconsistency becomes manageable.</p>
+          <p>The plan is designed to absorb it. Missing a week isn't the problem — a rigid plan that penalizes missed weeks is. The only thing we ask is that you keep sending the data, even when life gets messy. We handle the rest.</p>
         </details>
 
       </div>
@@ -738,7 +749,7 @@
     <div class="section-label" style="color:rgba(255,255,255,0.35);">The next step</div>
     <h2>Still blaming your age?<br>Or ready to find out what's actually<br>been hiding from you?</h2>
     <p>15 minutes. We look at your plateau, your signals, your history. You'll know exactly which of the 5 signals has been the limiter — and whether Second Wind is the right fit. If it isn't, we'll tell you that too.</p>
-    <button class="btn-primary large" onclick="openModal()">Find Out What's Been Hiding From You →</button>
+    <button class="btn-primary large" onclick="openModal()">Book the 15 Minutes — We'll Name the Signal That's Been Stopping You →</button>
     <p class="risk-note">Performance checkpoint at week 12 with full plan adjustments if you're off track.</p>
   </div>
 
@@ -749,7 +760,7 @@
 
   <!-- MOBILE STICKY BOTTOM -->
   <div class="mobile-sticky">
-    <button class="btn-primary" onclick="openModal()">Start Your Diagnostic →</button>
+    <button class="btn-primary" onclick="openModal()">See If You Qualify →</button>
   </div>
 
   <!-- TYPEFORM MODAL -->
