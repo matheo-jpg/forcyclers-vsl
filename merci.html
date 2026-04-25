@@ -112,6 +112,7 @@
     }
 
     /* CHECKLIST COLUMN */
+    /* Remove unused windows form styles */
     .checklist-title {
       font-size: 17px;
       font-weight: 800;
@@ -156,47 +157,6 @@
       color: var(--gray-text);
       display: block;
       margin-bottom: 0;
-    }
-
-    /* INLINE WINDOWS FORM */
-    .windows-inline {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-    .windows-inline select {
-      width: 100%;
-      padding: 8px 10px;
-      border: 1.5px solid var(--gray-mid);
-      border-radius: 6px;
-      font-size: 13px;
-      color: var(--black);
-      background: var(--white);
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23777' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-    }
-    .windows-inline select:focus { outline: none; border-color: var(--accent); }
-    .windows-inline .btn-confirm {
-      align-self: flex-start;
-      background: var(--accent);
-      color: var(--white);
-      border: none;
-      border-radius: 5px;
-      padding: 8px 18px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .windows-inline .btn-confirm:hover { background: var(--accent-hover); }
-    .windows-confirmed {
-      margin-top: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--green);
     }
 
     /* PROOF STRIP */
@@ -287,8 +247,8 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
       Application received
     </div>
-    <h1>You're in. Here's exactly what happens next.</h1>
-    <p class="timing">A coach will text you within 24 hours to lock in your diagnostic call.</p>
+    <h1>Your call is booked. Here's exactly what to do before it.</h1>
+    <p class="timing">Check your email for the Calendly confirmation with your exact date and time.</p>
   </div>
 
   <!-- MAIN GRID -->
@@ -306,7 +266,7 @@
 
     <!-- CHECKLIST -->
     <div class="checklist-col">
-      <div class="checklist-title">3 things to do right now</div>
+      <div class="checklist-title">2 things to do before the call</div>
       <p class="checklist-sub">Takes less than 5 minutes. Makes the call significantly more useful.</p>
 
       <div class="step">
@@ -320,42 +280,8 @@
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <strong>Confirm your SMS number</strong>
-          <span>We schedule by text, not email. Make sure the number you submitted is the one you check. We reach out within 24 hours.</span>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <strong>Pick two call windows</strong>
-          <span>We'll confirm one by text.</span>
-          <div class="windows-inline" id="windowsInline">
-            <select id="w1">
-              <option value="">First choice...</option>
-              <option>Mon-Fri · Morning (8am-12pm ET)</option>
-              <option>Mon-Fri · Afternoon (12pm-5pm ET)</option>
-              <option>Mon-Fri · Evening (5pm-8pm ET)</option>
-              <option>Saturday · Morning (8am-12pm ET)</option>
-              <option>Saturday · Afternoon (12pm-4pm ET)</option>
-              <option>Sunday · Morning (8am-12pm ET)</option>
-              <option>Sunday · Afternoon (12pm-4pm ET)</option>
-            </select>
-            <select id="w2">
-              <option value="">Second choice...</option>
-              <option>Mon-Fri · Morning (8am-12pm ET)</option>
-              <option>Mon-Fri · Afternoon (12pm-5pm ET)</option>
-              <option>Mon-Fri · Evening (5pm-8pm ET)</option>
-              <option>Saturday · Morning (8am-12pm ET)</option>
-              <option>Saturday · Afternoon (12pm-4pm ET)</option>
-              <option>Sunday · Morning (8am-12pm ET)</option>
-              <option>Sunday · Afternoon (12pm-4pm ET)</option>
-            </select>
-            <button class="btn-confirm" onclick="confirmWindows()">Confirm windows</button>
-          </div>
-          <div class="windows-confirmed" id="windowsConfirmed" style="display:none;">
-            Got it. We'll text you within 24 hours to lock in your slot.
-          </div>
+          <strong>Keep your phone close</strong>
+          <span>Your coach may text before the call to confirm and ask a quick prep question. Make sure the number you submitted is the one you check.</span>
         </div>
       </div>
 
@@ -383,7 +309,7 @@
 
   <!-- FOOTER REMINDER -->
   <div class="footer-reminder">
-    A coach will text you within 24 hours. <strong>Replying fast secures your place in the diagnostic queue.</strong>
+    Your call is locked in. <strong>Show up and you'll walk away knowing exactly what's holding your FTP back.</strong>
   </div>
 
   <!-- DISCLAIMER -->
@@ -391,18 +317,6 @@
     ForCyclers coaching is performance-based training and does not constitute medical advice. Results shown are individual and not guaranteed. FTP gains depend on starting fitness, consistency, and other factors specific to each athlete.
   </div>
 
-  <script>
-  function confirmWindows() {
-    var w1 = document.getElementById('w1').value;
-    var w2 = document.getElementById('w2').value;
-    if (!w1 || !w2) {
-      alert('Please select both windows before confirming.');
-      return;
-    }
-    document.getElementById('windowsInline').style.display = 'none';
-    document.getElementById('windowsConfirmed').style.display = 'block';
-  }
-  </script>
 
 </body>
 </html>
