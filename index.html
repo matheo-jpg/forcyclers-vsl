@@ -19,6 +19,7 @@
       --red: #dc2626;
     }
 
+    html, body { overflow-x: hidden; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       background: var(--white);
@@ -513,21 +514,9 @@
       line-height: 1.6;
     }
 
-    /* ── MOBILE STICKY ── */
-    .mobile-sticky {
-      display: none;
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--black);
-      padding: 12px 20px;
-      box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
-    }
-    .mobile-sticky .btn-primary { width: 100%; text-align: center; padding: 14px; font-size: 16px; }
     @media (max-width: 768px) {
-      .mobile-sticky { display: block; }
+      .sticky-header { justify-content: center; }
       .sticky-header .btn-primary { display: none; }
-      body { padding-bottom: 70px; }
     }
 
     /* ── APPLY CARD ── */
@@ -948,11 +937,6 @@
   <!-- DISCLAIMER -->
   <div class="disclaimer">
     ForCyclers coaching is performance-based training and does not constitute medical advice. Results shown are individual and not guaranteed. FTP gains depend on starting fitness, consistency, and other factors specific to each athlete. Consult a physician before beginning any new training program.
-  </div>
-
-  <!-- MOBILE STICKY -->
-  <div class="mobile-sticky">
-    <button class="btn-primary" onclick="openModal()">See If You Qualify →</button>
   </div>
 
   <script>
