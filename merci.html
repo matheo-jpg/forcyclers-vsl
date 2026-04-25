@@ -96,10 +96,10 @@
     .fc-section-title { text-align: center; font-size: 30px; font-weight: 900; margin-bottom: 6px; }
     .fc-section-sub { text-align: center; font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
 
-    /* OBJECTION GRID — 3 videos */
+    /* OBJECTION GRID — 4 videos (2x2) */
     .fc-obj-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
       margin-bottom: 48px;
     }
@@ -111,24 +111,54 @@
       box-shadow: var(--card-shadow);
     }
 
-    /* PROOF GRID */
-    .fc-proof-grid {
+    /* TESTIMONIAL VIDEOS — 3 videos (Mike, Thomas, Bryan) */
+    .fc-testi-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
       margin-bottom: 48px;
     }
-    .fc-proof-card {
-      background: var(--white);
+    .fc-testi-card {
       border-radius: 14px;
-      padding: 20px;
+      overflow: hidden;
+      background: var(--black);
       border: 1px solid var(--card-border);
       box-shadow: var(--card-shadow);
-      text-align: center;
     }
-    .fc-proof-card .delta { font-size: 34px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 6px; }
-    .fc-proof-card .detail { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-    .fc-proof-card .who { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .fc-testi-label {
+      padding: 10px 14px 0;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    /* WHATSAPP SCREENSHOTS */
+    .fc-screenshot-list { display: flex; flex-direction: column; gap: 36px; margin-bottom: 48px; }
+    .fc-screenshot-item { display: flex; flex-direction: column; }
+    .fc-screenshot-img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      display: block;
+    }
+    .fc-screenshot-annotation {
+      background: rgba(15,15,15,0.88);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      font-style: italic;
+      padding: 10px 16px;
+      border-radius: 10px;
+      max-width: 240px;
+      line-height: 1.4;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .fc-annotation-right { margin-left: auto; margin-right: 32px; }
+    .fc-annotation-left { margin-left: 32px; }
 
     /* FOOTER */
     .fc-footer { padding: 36px 0; text-align: center; border-top: 1px solid var(--card-border); }
@@ -142,8 +172,11 @@
       .fc-cal-btn { width: 54px; height: 54px; }
       .fc-cal-btn svg { width: 26px; height: 26px; }
       .fc-obj-grid { grid-template-columns: 1fr; }
-      .fc-proof-grid { grid-template-columns: 1fr; }
+      .fc-testi-grid { grid-template-columns: 1fr; }
       .fc-section-title { font-size: 22px; }
+      .fc-screenshot-annotation { max-width: 160px; font-size: 11px; }
+      .fc-annotation-right { margin-right: 12px; }
+      .fc-annotation-left { margin-left: 12px; }
     }
   </style>
 </head>
@@ -217,29 +250,51 @@
       <div class="fc-obj-card">
         <div id="fc_obj_3" style="width:100%;position:relative;padding-top:56.25%;"></div>
       </div>
+      <div class="fc-obj-card">
+        <div id="fc_obj_4" style="width:100%;position:relative;padding-top:56.25%;"></div>
+      </div>
     </div>
   </div>
 
-  <!-- PROOF SECTION -->
+  <!-- TESTIMONIAL VIDEOS -->
   <div class="fc-section-divider"></div>
   <div class="fc-container">
     <h2 class="fc-section-title">Real results from <span class="fc-highlight">real athletes</span></h2>
-    <p class="fc-section-sub">What Second Wind coaching unlocks for cyclists 40-55 with limited training time.</p>
-    <div class="fc-proof-grid">
-      <div class="fc-proof-card">
-        <div class="delta">+30w</div>
-        <div class="detail">240 to 270w · 12 weeks · Same hours</div>
-        <div class="who">Mike · 47 · CEO · Austin TX</div>
+    <p class="fc-section-sub">In their own words.</p>
+    <div class="fc-testi-grid">
+      <div class="fc-testi-card">
+        <div id="fc_testi_mike" style="width:100%;position:relative;padding-top:56.25%;"></div>
       </div>
-      <div class="fc-proof-card">
-        <div class="delta">+26w</div>
-        <div class="detail">275 to 301w · 10 weeks · Same hours</div>
-        <div class="who">Thomas · 52 · Former marathoner</div>
+      <div class="fc-testi-card">
+        <div id="fc_testi_thomas" style="width:100%;position:relative;padding-top:56.25%;"></div>
       </div>
-      <div class="fc-proof-card">
-        <div class="delta">+38w</div>
-        <div class="detail">230 to 268w · 12 weeks · Same hours</div>
-        <div class="who">Bryan · 47 · Project Manager · Portland OR</div>
+      <div class="fc-testi-card">
+        <div id="fc_testi_bryan" style="width:100%;position:relative;padding-top:56.25%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHATSAPP SCREENSHOTS -->
+  <div class="fc-section-divider"></div>
+  <div class="fc-container">
+    <h2 class="fc-section-title">What our <span class="fc-highlight">athletes</span> say</h2>
+    <p class="fc-section-sub"></p>
+    <div class="fc-screenshot-list">
+      <div class="fc-screenshot-item">
+        <div class="fc-screenshot-annotation fc-annotation-right">ANNOTATION_1</div>
+        <img class="fc-screenshot-img" src="SCREENSHOT_URL_1" alt="Athlete result">
+      </div>
+      <div class="fc-screenshot-item">
+        <div class="fc-screenshot-annotation fc-annotation-left">ANNOTATION_2</div>
+        <img class="fc-screenshot-img" src="SCREENSHOT_URL_2" alt="Athlete result">
+      </div>
+      <div class="fc-screenshot-item">
+        <div class="fc-screenshot-annotation fc-annotation-right">ANNOTATION_3</div>
+        <img class="fc-screenshot-img" src="SCREENSHOT_URL_3" alt="Athlete result">
+      </div>
+      <div class="fc-screenshot-item">
+        <div class="fc-screenshot-annotation fc-annotation-left">ANNOTATION_4</div>
+        <img class="fc-screenshot-img" src="SCREENSHOT_URL_4" alt="Athlete result">
       </div>
     </div>
   </div>
@@ -275,7 +330,7 @@
   </script>
 
   <!-- Vidalytics: objection videos (old format — SDK loaded by main video above) -->
-  <!-- Replace OBJECTION_ID_1 / 2 / 3 with actual Vidalytics IDs when videos are ready -->
+  <!-- Objection videos (replace OBJECTION_ID_1/2/3/4 with actual Vidalytics IDs) -->
   <script type="text/javascript">
   (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_obj_1','https://fast.vidalytics.com/embeds/j3d1vxJQ/OBJECTION_ID_1/player.settings.json');
   </script>
@@ -284,6 +339,20 @@
   </script>
   <script type="text/javascript">
   (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_obj_3','https://fast.vidalytics.com/embeds/j3d1vxJQ/OBJECTION_ID_3/player.settings.json');
+  </script>
+  <script type="text/javascript">
+  (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_obj_4','https://fast.vidalytics.com/embeds/j3d1vxJQ/OBJECTION_ID_4/player.settings.json');
+  </script>
+
+  <!-- Testimonial videos: Mike, Thomas, Bryan -->
+  <script type="text/javascript">
+  (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_testi_mike','https://fast.vidalytics.com/embeds/j3d1vxJQ/3f3qCXrU61HdjYAP/player.settings.json');
+  </script>
+  <script type="text/javascript">
+  (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_testi_thomas','https://fast.vidalytics.com/embeds/j3d1vxJQ/VVCUfY8MyWbOohzN/player.settings.json');
+  </script>
+  <script type="text/javascript">
+  (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_testi_bryan','https://fast.vidalytics.com/embeds/j3d1vxJQ/GPn3yFfidoMiWPDA/player.settings.json');
   </script>
 
 </body>
