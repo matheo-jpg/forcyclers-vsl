@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ForCyclers — We're Hiring a Closer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --white: #ffffff;
+      --gray-light: #f5f5f5;
+      --gray-mid: #e0e0e0;
+      --gray-text: #555555;
+      --accent: #1d4ed8;
+      --accent-hover: #1e40af;
+      --green: #16a34a;
+      --red: #dc2626;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 56px 24px 40px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero .subhead {
+      font-size: clamp(16px, 2.5vw, 18px);
+      color: var(--gray-text);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* WHAT'S IN IT */
+    .section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--black);
+    }
+    p { color: #333; margin-bottom: 14px; }
+
+    /* DEAL CARDS */
+    .deal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    @media (max-width: 560px) { .deal-grid { grid-template-columns: 1fr; } }
+    .deal-card {
+      background: var(--gray-light);
+      border: 1px solid var(--gray-mid);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .deal-card strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .deal-card span {
+      font-size: 13px;
+      color: var(--gray-text);
+      line-height: 1.55;
+    }
+
+    /* REQUIREMENTS */
+    .req-block {
+      background: var(--black);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 0;
+    }
+    .req-block h2 { color: var(--white); margin-bottom: 20px; }
+    .req-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .req-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .req-list li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+    .req-list li strong { color: var(--white); }
+
+    /* DISQUALIFIERS */
+    .disq {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .disq-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 10px;
+    }
+    .disq-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .disq-list li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      padding-left: 18px;
+      position: relative;
+    }
+    .disq-list li::before {
+      content: "✕";
+      color: var(--red);
+      position: absolute;
+      left: 0;
+      font-size: 11px;
+      top: 2px;
+    }
+
+    /* FORM SECTION */
+    .form-section {
+      background: var(--gray-light);
+      border-top: 1px solid var(--gray-mid);
+      border-bottom: 1px solid var(--gray-mid);
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .form-inner { max-width: 720px; margin: 0 auto; }
+    .form-inner h2 { margin-bottom: 8px; }
+    .form-inner .form-sub {
+      font-size: 14px;
+      color: var(--gray-text);
+      margin-bottom: 32px;
+    }
+    .tf-embed-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 600px;
+    }
+
+    /* FOOTER NOTE */
+    .footer-note {
+      text-align: center;
+      padding: 24px;
+      font-size: 11px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="eyebrow">ForCyclers — Remote Closer Role</div>
+    <h1>Inbound calls only.<br><em>$4,000–$6,000</em> tickets.<br>No prospecting. Ever.</h1>
+    <p class="subhead">We coach serious cyclists 40-55 who've already tried everything. They book the call. You close. That's the whole job.</p>
+  </div>
+
+  <!-- WHAT'S IN IT FOR YOU -->
+  <div class="section">
+    <div class="section-label">The deal</div>
+    <h2>What You're Stepping Into</h2>
+    <p>ForCyclers is a premium 1-on-1 cycling coaching program for high-income men who ride seriously and have stopped improving. Ticket is $4,000-$6,000. Calls are inbound, pre-qualified by a diagnostic questionnaire. Your only job is to close.</p>
+
+    <div class="deal-grid">
+      <div class="deal-card">
+        <strong>Inbound only</strong>
+        <span>Prospects book after watching the VSL and filling a qualifier form. They come to the call motivated. Zero cold outreach on your end.</span>
+      </div>
+      <div class="deal-card">
+        <strong>$4K–$6K ticket</strong>
+        <span>6-month and 12-month programs. High-ticket, real product, real results. Clients who can actually afford it.</span>
+      </div>
+      <div class="deal-card">
+        <strong>100% commission</strong>
+        <span>No cap. You close, you eat. KPI target: 25-30% close rate on qualified calls. Top performers earn well above average.</span>
+      </div>
+      <div class="deal-card">
+        <strong>Premium avatar</strong>
+        <span>Men 40-55, $100K+ income, data-driven, serious about performance. They respect expertise. They're not price-shoppers.</span>
+      </div>
+      <div class="deal-card">
+        <strong>Coaching on close rate</strong>
+        <span>Internal coaching to push your close rate past 25%. You're not dropped in cold — we work on your performance together.</span>
+      </div>
+      <div class="deal-card">
+        <strong>Clean pipeline</strong>
+        <span>Qualified leads only. Pre-call data from the diagnostic form so you know exactly who you're talking to before the call starts.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUIREMENTS -->
+  <div class="section" style="padding-top: 0;">
+    <div class="req-block">
+      <h2>What We Need From You</h2>
+      <ul class="req-list">
+        <li><strong>12+ months closing high-ticket</strong> — $2K-$10K range. Documented results, not just claims.</li>
+        <li><strong>Native or fluent English</strong> — this is a US, UK, AU, CA market. No exceptions.</li>
+        <li><strong>PT / CT timezone availability</strong> — most calls happen during business hours West Coast time.</li>
+        <li><strong>A sample call recording</strong> — we listen before we hire. Bring a real call, not a roleplay.</li>
+        <li><strong>Comfort with 100% commission</strong> — there is no base. This is closer economics. You either perform or you don't.</li>
+        <li><strong>Passion for cycling or fitness</strong> — not required, but a real edge with this avatar. They'll know if you don't get it.</li>
+      </ul>
+
+      <div class="disq">
+        <div class="disq-label">Auto-disqualified if</div>
+        <ul class="disq-list">
+          <li>No verifiable high-ticket closing experience</li>
+          <li>English not at native or near-native level</li>
+          <li>Not available PT / CT business hours</li>
+          <li>No sample call to share</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-section">
+    <div class="form-inner">
+      <h2>Apply Now</h2>
+      <p class="form-sub">Takes 3-4 minutes. We review every application within 48 hours.</p>
+      <div class="tf-embed-wrap" data-tf-widget="YOUR_TYPEFORM_ID" data-tf-hide-headers data-tf-hide-footer style="min-height:600px;"></div>
+    </div>
+  </div>
+
+  <script src="//embed.typeform.com/next/embed.js"></script>
+
+  <div class="footer-note">
+    ForCyclers LLC - Remote position - Commission only - Applications reviewed within 48 hours
+  </div>
+
+</body>
+</html>
