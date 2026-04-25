@@ -3,320 +3,288 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Application Received — Second Wind by ForCyclers</title>
+  <title>Call Confirmed — Second Wind by ForCyclers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8f8f8;
+      color: #0f0f0f;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
     :root {
       --black: #0f0f0f;
       --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray-mid: #e0e0e0;
-      --gray-text: #666666;
       --accent: #1d4ed8;
-      --accent-hover: #1e40af;
-      --green: #16a34a;
+      --card-border: rgba(0,0,0,0.1);
+      --card-bg: rgba(255,255,255,0.92);
+      --card-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      --text-muted: #555;
+      --max-width: 800px;
     }
 
-    html, body { overflow-x: hidden; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      background: var(--white);
-      color: var(--black);
-      font-size: 16px;
-      line-height: 1.6;
-    }
+    .fc-container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+    .fc-highlight { color: var(--accent); }
 
     /* HEADER */
-    .site-header {
-      background: var(--black);
-      padding: 14px 24px;
-      text-align: center;
-    }
-    .site-header .logo {
-      color: var(--white);
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+    .fc-header { background: var(--black); padding: 14px 24px; text-align: center; }
+    .fc-header .logo { color: var(--white); font-weight: 700; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase; }
 
-    /* HERO */
-    .hero {
-      text-align: center;
-      padding: 44px 24px 32px;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-    .hero .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: #dcfce7;
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      padding: 5px 13px;
-      border-radius: 100px;
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      font-size: clamp(22px, 3.5vw, 34px);
-      font-weight: 800;
-      line-height: 1.2;
-      color: var(--black);
-      margin-bottom: 10px;
-    }
-    .hero .timing {
-      font-size: clamp(14px, 1.8vw, 16px);
-      color: var(--gray-text);
-    }
+    /* HEADLINE */
+    .fc-headline { text-align: center; padding: 32px 0 12px; }
+    .fc-headline h1 { font-size: 36px; font-weight: 900; line-height: 1.2; }
+    .fc-divider-thin { width: 40%; height: 2px; background: var(--card-border); margin: 12px auto 24px; }
 
-    /* MAIN GRID */
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 24px 52px;
-      align-items: start;
-    }
-    @media (max-width: 700px) {
-      .main-grid { grid-template-columns: 1fr; gap: 28px; }
-    }
-
-    /* VIDEO COLUMN */
-    .video-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    .video-wrap {
-      width: 100%;
-      background: var(--black);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .video-caption {
-      font-size: 12px;
-      color: var(--gray-text);
-      margin-top: 8px;
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    /* CHECKLIST COLUMN */
-    /* Remove unused windows form styles */
-    .checklist-title {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--black);
-      margin-bottom: 4px;
-    }
-    .checklist-sub {
-      font-size: 13px;
-      color: var(--gray-text);
-      margin-bottom: 22px;
-    }
-
-    .step {
-      display: flex;
-      gap: 14px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--gray-mid);
-    }
-    .step:first-of-type { border-top: 1px solid var(--gray-mid); }
-    .step-num {
-      flex-shrink: 0;
-      width: 26px;
-      height: 26px;
-      background: var(--black);
-      border-radius: 50%;
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 1px;
-    }
-    .step-content strong {
-      display: block;
-      font-size: 14px;
-      color: var(--black);
-      margin-bottom: 3px;
-    }
-    .step-content span {
-      font-size: 13px;
-      color: var(--gray-text);
-      display: block;
-      margin-bottom: 0;
-    }
-
-    /* PROOF STRIP */
-    .proof-strip {
-      background: var(--gray-light);
-      padding: 36px 24px;
-      border-top: 1px solid var(--gray-mid);
-    }
-    .proof-strip .inner {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .proof-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .proof-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media (max-width: 500px) { .proof-row { grid-template-columns: 1fr; } }
-    .proof-card {
+    /* STEP PILL */
+    .fc-pill-wrap { text-align: center; margin-bottom: 18px; }
+    .fc-pill {
+      display: inline-block;
       background: var(--white);
-      border-radius: 8px;
-      padding: 20px;
-      border: 1px solid var(--gray-mid);
-      text-align: center;
-    }
-    .proof-card .delta {
-      font-size: 30px;
-      font-weight: 900;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .proof-card .detail {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 5px;
-    }
-    .proof-card .who {
-      font-size: 11px;
-      color: var(--gray-text);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      border: 1px solid var(--card-border);
+      border-radius: 50px;
+      padding: 14px 32px;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: var(--card-shadow);
     }
 
-    /* FOOTER REMINDER */
-    .footer-reminder {
+    /* CARD */
+    .fc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--card-shadow);
+    }
+
+    /* CALENDAR */
+    .fc-cal-icons { display: flex; justify-content: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+    .fc-cal-btn {
+      width: 64px; height: 64px;
+      border-radius: 14px;
+      border: 1px solid var(--card-border);
+      background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .fc-cal-btn:hover { background: #f0f4ff; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+    .fc-cal-btn svg { width: 32px; height: 32px; }
+    .fc-cal-note { font-size: 13px; color: var(--text-muted); font-style: italic; text-align: center; }
+
+    /* VIDEO */
+    .fc-video-wrap { border-radius: 12px; overflow: hidden; }
+    .fc-video-placeholder {
+      width: 100%;
+      position: relative;
+      padding-top: 56.25%;
       background: var(--black);
-      color: var(--white);
-      text-align: center;
-      padding: 22px 24px;
-      font-size: clamp(13px, 2vw, 15px);
-      font-weight: 500;
-      line-height: 1.5;
+      border-radius: 12px;
     }
-    .footer-reminder strong { font-weight: 800; }
 
-    /* DISCLAIMER */
-    .disclaimer {
-      padding: 20px 24px 28px;
+    /* SECTION DIVIDER */
+    .fc-section-divider { width: 100%; height: 1px; background: var(--card-border); margin: 0 0 36px; }
+
+    /* SECTION TITLE */
+    .fc-section-title { text-align: center; font-size: 30px; font-weight: 900; margin-bottom: 6px; }
+    .fc-section-sub { text-align: center; font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+    /* OBJECTION GRID — 3 videos */
+    .fc-obj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .fc-obj-card {
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--black);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+    }
+
+    /* PROOF GRID */
+    .fc-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .fc-proof-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
       text-align: center;
-      font-size: 11px;
-      color: #bbb;
-      max-width: 600px;
-      margin: 0 auto;
+    }
+    .fc-proof-card .delta { font-size: 34px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+    .fc-proof-card .detail { font-size: 13px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+    .fc-proof-card .who { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* FOOTER */
+    .fc-footer { padding: 36px 0; text-align: center; border-top: 1px solid var(--card-border); }
+    .fc-footer-disclaimer { font-size: 11px; color: var(--text-muted); line-height: 1.7; max-width: 680px; margin: 0 auto 14px; opacity: 0.7; }
+    .fc-footer-copy { font-size: 12px; color: var(--text-muted); opacity: 0.6; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .fc-headline h1 { font-size: 24px; }
+      .fc-pill { font-size: 14px; padding: 12px 20px; }
+      .fc-cal-btn { width: 54px; height: 54px; }
+      .fc-cal-btn svg { width: 26px; height: 26px; }
+      .fc-obj-grid { grid-template-columns: 1fr; }
+      .fc-proof-grid { grid-template-columns: 1fr; }
+      .fc-section-title { font-size: 22px; }
     }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="site-header">
+  <header class="fc-header">
     <div class="logo">ForCyclers</div>
   </header>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="badge">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-      Application received
+  <!-- HEADLINE -->
+  <div class="fc-headline">
+    <div class="fc-container">
+      <h1>Follow the steps below to <span class="fc-highlight">confirm your call</span></h1>
+      <div class="fc-divider-thin"></div>
     </div>
-    <h1>Your call is booked. Here's exactly what to do before it.</h1>
-    <p class="timing">Check your email for the Calendly confirmation with your exact date and time.</p>
   </div>
 
-  <!-- MAIN GRID -->
-  <div class="main-grid">
+  <div class="fc-container">
 
-    <!-- VIDEO -->
-    <div class="video-col">
-      <div class="video-label">Watch this first</div>
-      <div class="video-wrap">
+    <!-- STEP 1: ADD TO CALENDAR -->
+    <div class="fc-card">
+      <div class="fc-pill-wrap">
+        <div class="fc-pill">Step 1: <span class="fc-highlight">Add the call</span> to your calendar</div>
+      </div>
+      <div class="fc-cal-icons">
+        <a class="fc-cal-btn" id="fcCalApple" href="#" download="diagnostic-call-forcyclers.ics" title="Apple Calendar">
+          <svg viewBox="0 0 24 24" fill="#333"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+        </a>
+        <a class="fc-cal-btn" id="fcCalGoogle" href="#" target="_blank" title="Google Calendar">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.76h3.56c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.56-2.76c-.98.66-2.23 1.06-3.72 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09a6.87 6.87 0 010-4.38V6.87H2.18a11 11 0 000 9.9l3.66-2.68z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        </a>
+        <a class="fc-cal-btn" id="fcCalOffice" href="#" target="_blank" title="Office 365">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M8 2L2 5.5v13L8 22l14-3V5L8 2z" fill="#EB3C00"/><path d="M8 2v20l14-3V5L8 2z" fill="#EB3C00" opacity="0.8"/><path d="M2 5.5L8 2l14 3L8 8.5 2 5.5z" fill="#FF6D3F"/></svg>
+        </a>
+        <a class="fc-cal-btn" id="fcCalOutlook" href="#" target="_blank" title="Outlook">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="1" y="4" width="22" height="16" rx="2" fill="#0078D4"/><path d="M1 6l11 7 11-7" stroke="#28A8EA" stroke-width="1.5" fill="none"/><ellipse cx="8" cy="14" rx="4" ry="3.5" fill="#fff" opacity="0.9"/></svg>
+        </a>
+        <a class="fc-cal-btn" id="fcCalYahoo" href="#" target="_blank" title="Yahoo">
+          <svg viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="#6001D2"/><path d="M7 7l3.5 5.5V17h3v-4.5L17 7h-3l-2 3.5L10 7H7z" fill="#fff"/></svg>
+        </a>
+      </div>
+      <p class="fc-cal-note">Select your calendar and save the call</p>
+    </div>
+
+    <!-- STEP 2: BREAKOUT VIDEO -->
+    <div class="fc-card">
+      <div class="fc-pill-wrap">
+        <div class="fc-pill">Step 2: Watch this video to <span class="fc-highlight">secure your spot</span></div>
+      </div>
+      <div class="fc-video-wrap">
         <div id="vidalytics_embed_ct0l6MYpRlLIWWji" style="width:100%;position:relative;padding-top:56.25%;"></div>
         <script type="text/javascript">(function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl+'Script'],vlf=v[c][vl+'Loaded'],ve='Embed';if(!vsl){vsl=function(u,cb){if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}i.getElementsByTagName("head")[0].appendChild(s);};}vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});})(window,document,'Vidalytics','vidalytics_embed_ct0l6MYpRlLIWWji','https://fast.vidalytics.com/embeds/j3d1vxJQ/ct0l6MYpRlLIWWji/');</script>
       </div>
-      <p class="video-caption">What happens next, what to prepare, and what you'll walk away with from the diagnostic.</p>
     </div>
 
-    <!-- CHECKLIST -->
-    <div class="checklist-col">
-      <div class="checklist-title">2 things to do before the call</div>
-      <p class="checklist-sub">Takes less than 5 minutes. Makes the call significantly more useful.</p>
-
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <strong>Connect your data</strong>
-          <span>Sync TrainingPeaks, Garmin Connect, or Strava. Your coach reviews your last 90 days before the call.</span>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <strong>Keep your phone close</strong>
-          <span>Your coach may text before the call to confirm and ask a quick prep question. Make sure the number you submitted is the one you check.</span>
-        </div>
-      </div>
-
-    </div>
   </div>
 
-  <!-- PROOF STRIP -->
-  <div class="proof-strip">
-    <div class="inner">
-      <div class="proof-label">What the diagnostic unlocks</div>
-      <div class="proof-row">
-        <div class="proof-card">
-          <div class="delta">+30w</div>
-          <div class="detail">240 to 270w · 12 weeks · Same hours</div>
-          <div class="who">Mike · 47 · CEO · Austin TX</div>
-        </div>
-        <div class="proof-card">
-          <div class="delta">+38w</div>
-          <div class="detail">230 to 268w · 12 weeks · Same hours</div>
-          <div class="who">Bryan · 47 · Project Manager · Portland OR</div>
-        </div>
+  <!-- OBJECTION VIDEOS -->
+  <div class="fc-section-divider"></div>
+  <div class="fc-container">
+    <h2 class="fc-section-title">We answer your <span class="fc-highlight">questions</span> before the call</h2>
+    <p class="fc-section-sub"></p>
+    <div class="fc-obj-grid">
+      <div class="fc-obj-card">
+        <div id="fc_obj_1" style="width:100%;position:relative;padding-top:56.25%;"></div>
+      </div>
+      <div class="fc-obj-card">
+        <div id="fc_obj_2" style="width:100%;position:relative;padding-top:56.25%;"></div>
+      </div>
+      <div class="fc-obj-card">
+        <div id="fc_obj_3" style="width:100%;position:relative;padding-top:56.25%;"></div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER REMINDER -->
-  <div class="footer-reminder">
-    Your call is locked in. <strong>Show up and you'll walk away knowing exactly what's holding your FTP back.</strong>
+  <!-- PROOF SECTION -->
+  <div class="fc-section-divider"></div>
+  <div class="fc-container">
+    <h2 class="fc-section-title">Real results from <span class="fc-highlight">real athletes</span></h2>
+    <p class="fc-section-sub">What Second Wind coaching unlocks for cyclists 40-55 with limited training time.</p>
+    <div class="fc-proof-grid">
+      <div class="fc-proof-card">
+        <div class="delta">+30w</div>
+        <div class="detail">240 to 270w · 12 weeks · Same hours</div>
+        <div class="who">Mike · 47 · CEO · Austin TX</div>
+      </div>
+      <div class="fc-proof-card">
+        <div class="delta">+26w</div>
+        <div class="detail">275 to 301w · 10 weeks · Same hours</div>
+        <div class="who">Thomas · 52 · Former marathoner</div>
+      </div>
+      <div class="fc-proof-card">
+        <div class="delta">+38w</div>
+        <div class="detail">230 to 268w · 12 weeks · Same hours</div>
+        <div class="who">Bryan · 47 · Project Manager · Portland OR</div>
+      </div>
+    </div>
   </div>
 
-  <!-- DISCLAIMER -->
-  <div class="disclaimer">
-    ForCyclers coaching is performance-based training and does not constitute medical advice. Results shown are individual and not guaranteed. FTP gains depend on starting fitness, consistency, and other factors specific to each athlete.
+  <!-- FOOTER -->
+  <div class="fc-footer">
+    <div class="fc-container">
+      <p class="fc-footer-disclaimer">ForCyclers coaching is performance-based training and does not constitute medical advice. Results shown are individual and not guaranteed. FTP gains depend on starting fitness, consistency, and other factors specific to each athlete.</p>
+      <p class="fc-footer-copy">&copy; 2026 ForCyclers. All rights reserved.</p>
+    </div>
   </div>
 
+  <!-- CALENDAR LINKS (reads Calendly URL params) -->
+  <script>
+  (function() {
+    var p = new URLSearchParams(window.location.search);
+    var startRaw = p.get('event_start_time');
+    var endRaw = p.get('event_end_time');
+    if (!startRaw || !endRaw) return;
+    var start = new Date(startRaw), end = new Date(endRaw);
+    var name = 'Diagnostic Call - Second Wind by ForCyclers';
+    var desc = 'Diagnostic call with your ForCyclers coach. Be on time, in a quiet space. Have your TrainingPeaks or Garmin data ready.';
+    var t = encodeURIComponent(name), dd = encodeURIComponent(desc);
+    function ics(d) { return d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''); }
+    document.getElementById('fcCalGoogle').href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+t+'&dates='+ics(start)+'/'+ics(end)+'&details='+dd;
+    document.getElementById('fcCalOutlook').href = 'https://outlook.live.com/calendar/0/action/compose?allday=false&subject='+t+'&startdt='+start.toISOString()+'&enddt='+end.toISOString()+'&body='+dd;
+    document.getElementById('fcCalOffice').href = 'https://outlook.office.com/calendar/0/action/compose?allday=false&subject='+t+'&startdt='+start.toISOString()+'&enddt='+end.toISOString()+'&body='+dd;
+    var dur = Math.round((end-start)/60000), dh=String(Math.floor(dur/60)).padStart(2,'0'), dm=String(dur%60).padStart(2,'0');
+    document.getElementById('fcCalYahoo').href = 'https://calendar.yahoo.com/?v=60&title='+t+'&st='+ics(start)+'&dur='+dh+dm+'&desc='+dd;
+    var blob = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//ForCyclers//EN','BEGIN:VEVENT','DTSTART:'+ics(start),'DTEND:'+ics(end),'SUMMARY:'+name,'DESCRIPTION:'+desc,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    document.getElementById('fcCalApple').href = URL.createObjectURL(new Blob([blob],{type:'text/calendar;charset=utf-8'}));
+  })();
+  </script>
+
+  <!-- Vidalytics: objection videos (old format — SDK loaded by main video above) -->
+  <!-- Replace OBJECTION_ID_1 / 2 / 3 with actual Vidalytics IDs when videos are ready -->
+  <script type="text/javascript">
+  (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_obj_1','https://fast.vidalytics.com/embeds/j3d1vxJQ/OBJECTION_ID_1/player.settings.json');
+  </script>
+  <script type="text/javascript">
+  (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_obj_2','https://fast.vidalytics.com/embeds/j3d1vxJQ/OBJECTION_ID_2/player.settings.json');
+  </script>
+  <script type="text/javascript">
+  (function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);s.onreadystatechange=function(){if(s.readyState==4){if(s.status==200||s.status==304){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options:sd};t();}}};s.send();})(window,document,'Vidalytics','fc_obj_3','https://fast.vidalytics.com/embeds/j3d1vxJQ/OBJECTION_ID_3/player.settings.json');
+  </script>
 
 </body>
 </html>
