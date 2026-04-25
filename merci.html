@@ -12,7 +12,7 @@
       --white: #ffffff;
       --gray-light: #f5f5f5;
       --gray-mid: #e0e0e0;
-      --gray-text: #555555;
+      --gray-text: #666666;
       --accent: #1d4ed8;
       --accent-hover: #1e40af;
       --green: #16a34a;
@@ -27,7 +27,7 @@
       line-height: 1.6;
     }
 
-    /* ── HEADER ── */
+    /* HEADER */
     .site-header {
       background: var(--black);
       padding: 14px 24px;
@@ -37,69 +37,65 @@
       color: var(--white);
       font-weight: 700;
       font-size: 15px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       text-align: center;
-      padding: 52px 24px 36px;
-      max-width: 720px;
+      padding: 44px 24px 32px;
+      max-width: 680px;
       margin: 0 auto;
     }
-    .hero .status-badge {
+    .hero .badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       background: #dcfce7;
       color: var(--green);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      padding: 6px 14px;
+      padding: 5px 13px;
       border-radius: 100px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
-    .hero .status-badge svg { flex-shrink: 0; }
     .hero h1 {
-      font-size: clamp(24px, 4vw, 38px);
+      font-size: clamp(22px, 3.5vw, 34px);
       font-weight: 800;
       line-height: 1.2;
       color: var(--black);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
-    .hero .subhead {
-      font-size: clamp(15px, 2vw, 18px);
+    .hero .timing {
+      font-size: clamp(14px, 1.8vw, 16px);
       color: var(--gray-text);
-      max-width: 560px;
-      margin: 0 auto;
     }
 
-    /* ── MAIN GRID ── */
+    /* MAIN GRID */
     .main-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      max-width: 1000px;
+      gap: 36px;
+      max-width: 980px;
       margin: 0 auto;
-      padding: 0 24px 56px;
+      padding: 0 24px 52px;
       align-items: start;
     }
-    @media (max-width: 720px) {
-      .main-grid { grid-template-columns: 1fr; }
+    @media (max-width: 700px) {
+      .main-grid { grid-template-columns: 1fr; gap: 28px; }
     }
 
-    /* ── VIDEO COLUMN ── */
-    .video-col {}
+    /* VIDEO COLUMN */
     .video-label {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .video-wrap {
       width: 100%;
@@ -108,211 +104,172 @@
       overflow: hidden;
     }
     .video-caption {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--gray-text);
-      margin-top: 10px;
+      margin-top: 8px;
       text-align: center;
+      line-height: 1.4;
     }
 
-    /* ── CHECKLIST COLUMN ── */
-    .checklist-col {}
+    /* CHECKLIST COLUMN */
     .checklist-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 800;
       color: var(--black);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
     .checklist-sub {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--gray-text);
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
-    .checklist {
-      list-style: none;
-      margin-bottom: 28px;
-    }
-    .checklist li {
+
+    .step {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 0;
+      gap: 14px;
+      padding: 16px 0;
       border-bottom: 1px solid var(--gray-mid);
     }
-    .checklist li:first-child { border-top: 1px solid var(--gray-mid); }
-    .check-icon {
+    .step:first-of-type { border-top: 1px solid var(--gray-mid); }
+    .step-num {
       flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      background: var(--accent);
+      width: 26px;
+      height: 26px;
+      background: var(--black);
       border-radius: 50%;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 2px;
+      margin-top: 1px;
     }
-    .checklist li strong {
+    .step-content strong {
       display: block;
       font-size: 14px;
       color: var(--black);
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
-    .checklist li span {
+    .step-content span {
       font-size: 13px;
       color: var(--gray-text);
+      display: block;
+      margin-bottom: 0;
     }
 
-    /* ── TIME WINDOWS FORM ── */
-    .windows-form {
-      background: var(--gray-light);
-      border-radius: 10px;
-      padding: 20px;
-      border: 1px solid var(--gray-mid);
+    /* INLINE WINDOWS FORM */
+    .windows-inline {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
     }
-    .windows-form h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 4px;
-    }
-    .windows-form p {
-      font-size: 13px;
-      color: var(--gray-text);
-      margin-bottom: 16px;
-    }
-    .form-row { margin-bottom: 12px; }
-    .form-row label {
-      display: block;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .form-row select {
+    .windows-inline select {
       width: 100%;
-      padding: 10px 12px;
+      padding: 8px 10px;
       border: 1.5px solid var(--gray-mid);
       border-radius: 6px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--black);
       background: var(--white);
       appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23555' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23777' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
-      background-position: right 12px center;
+      background-position: right 10px center;
     }
-    .form-row select:focus { outline: none; border-color: var(--accent); }
-    .btn-submit {
-      width: 100%;
+    .windows-inline select:focus { outline: none; border-color: var(--accent); }
+    .windows-inline .btn-confirm {
+      align-self: flex-start;
       background: var(--accent);
       color: var(--white);
       border: none;
-      border-radius: 6px;
-      padding: 13px;
-      font-size: 15px;
+      border-radius: 5px;
+      padding: 8px 18px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      margin-top: 4px;
       transition: background 0.2s;
     }
-    .btn-submit:hover { background: var(--accent-hover); }
-    .form-note {
-      font-size: 12px;
-      color: var(--gray-text);
-      text-align: center;
+    .windows-inline .btn-confirm:hover { background: var(--accent-hover); }
+    .windows-confirmed {
       margin-top: 10px;
-    }
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 16px;
-    }
-    .form-success .check-big {
-      font-size: 32px;
-      margin-bottom: 8px;
-    }
-    .form-success p {
-      font-size: 14px;
-      color: var(--gray-text);
-      margin: 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
     }
 
-    /* ── PROMISE BANNER ── */
-    .promise-banner {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-      padding: 28px 24px;
-    }
-    .promise-banner strong {
-      display: block;
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .promise-banner span {
-      font-size: 14px;
-      color: rgba(255,255,255,0.55);
-    }
-
-    /* ── PROOF STRIP ── */
+    /* PROOF STRIP */
     .proof-strip {
       background: var(--gray-light);
-      padding: 40px 24px;
+      padding: 36px 24px;
+      border-top: 1px solid var(--gray-mid);
     }
     .proof-strip .inner {
-      max-width: 800px;
+      max-width: 700px;
       margin: 0 auto;
     }
-    .proof-strip .section-label {
+    .proof-label {
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 20px;
       text-align: center;
+      margin-bottom: 20px;
     }
     .proof-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
-    @media (max-width: 600px) { .proof-row { grid-template-columns: 1fr; } }
-    .proof-item {
+    @media (max-width: 500px) { .proof-row { grid-template-columns: 1fr; } }
+    .proof-card {
       background: var(--white);
       border-radius: 8px;
-      padding: 18px;
+      padding: 20px;
       border: 1px solid var(--gray-mid);
       text-align: center;
     }
-    .proof-item .watts {
-      font-size: 24px;
-      font-weight: 800;
+    .proof-card .delta {
+      font-size: 30px;
+      font-weight: 900;
       color: var(--accent);
-      margin-bottom: 4px;
-    }
-    .proof-item .detail {
-      font-size: 12px;
-      color: var(--black);
-      font-weight: 600;
+      line-height: 1;
       margin-bottom: 6px;
     }
-    .proof-item .who {
+    .proof-card .detail {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 5px;
+    }
+    .proof-card .who {
       font-size: 11px;
       color: var(--gray-text);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    /* ── DISCLAIMER ── */
+    /* FOOTER REMINDER */
+    .footer-reminder {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 22px 24px;
+      font-size: clamp(13px, 2vw, 15px);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .footer-reminder strong { font-weight: 800; }
+
+    /* DISCLAIMER */
     .disclaimer {
-      padding: 24px;
+      padding: 20px 24px 28px;
       text-align: center;
       font-size: 11px;
-      color: #aaa;
-      max-width: 640px;
+      color: #bbb;
+      max-width: 600px;
       margin: 0 auto;
     }
   </style>
@@ -326,12 +283,12 @@
 
   <!-- HERO -->
   <div class="hero">
-    <div class="status-badge">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <div class="badge">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
       Application received
     </div>
-    <h1>You're in the queue.<br>Here's exactly what happens now.</h1>
-    <p class="subhead">Watch the 90-second video, complete the 3 items below, and you're done. We handle the rest.</p>
+    <h1>You're in. Here's exactly what happens next.</h1>
+    <p class="timing">A coach will text you within 24 hours to lock in your diagnostic call.</p>
   </div>
 
   <!-- MAIN GRID -->
@@ -339,124 +296,94 @@
 
     <!-- VIDEO -->
     <div class="video-col">
-      <div class="video-label">From your coach</div>
+      <div class="video-label">Watch this first</div>
       <div class="video-wrap">
-        <!-- REPLACE with Vidalytics coach thank-you video -->
         <div id="vidalytics_embed_ct0l6MYpRlLIWWji" style="width:100%;position:relative;padding-top:56.25%;"></div>
         <script type="text/javascript">(function(v,i,d,a,l,y,t,c,s){y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl+'Script'],vlf=v[c][vl+'Loaded'],ve='Embed';if(!vsl){vsl=function(u,cb){if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}i.getElementsByTagName("head")[0].appendChild(s);};}vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});})(window,document,'Vidalytics','vidalytics_embed_ct0l6MYpRlLIWWji','https://fast.vidalytics.com/embeds/j3d1vxJQ/ct0l6MYpRlLIWWji/');</script>
       </div>
-      <p class="video-caption">What happens next, what to prepare, and what you'll walk away with.</p>
+      <p class="video-caption">What happens next, what to prepare, and what you'll walk away with from the diagnostic.</p>
     </div>
 
-    <!-- CHECKLIST + FORM -->
+    <!-- CHECKLIST -->
     <div class="checklist-col">
-      <div class="checklist-title">3 things to do before the call</div>
-      <p class="checklist-sub">This takes less than 5 minutes and makes the call 10x more useful.</p>
+      <div class="checklist-title">3 things to do right now</div>
+      <p class="checklist-sub">Takes less than 5 minutes. Makes the call significantly more useful.</p>
 
-      <ul class="checklist">
-        <li>
-          <div class="check-icon">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <strong>Connect your data</strong>
-            <span>Sync TrainingPeaks, Garmin Connect, or Strava so your coach can see your last 90 days before the call.</span>
-          </div>
-        </li>
-        <li>
-          <div class="check-icon">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <strong>Confirm your SMS number</strong>
-            <span>We text, not email. Make sure the number you gave us is the one you check. We'll text you a time within 24 hours.</span>
-          </div>
-        </li>
-        <li>
-          <div class="check-icon">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <strong>Pick your two best windows</strong>
-            <span>Tell us when works for you so scheduling is instant when we reach out.</span>
-          </div>
-        </li>
-      </ul>
-
-      <!-- TIME WINDOWS FORM -->
-      <div class="windows-form" id="windowsForm">
-        <h3>Your preferred call windows</h3>
-        <p>US time zones only. We'll confirm one of the two by text.</p>
-
-        <div class="form-row">
-          <label>First choice</label>
-          <select id="window1">
-            <option value="">Select a window...</option>
-            <option>Monday–Friday, Morning (8am–12pm)</option>
-            <option>Monday–Friday, Afternoon (12pm–5pm)</option>
-            <option>Monday–Friday, Evening (5pm–8pm)</option>
-            <option>Saturday, Morning (8am–12pm)</option>
-            <option>Saturday, Afternoon (12pm–4pm)</option>
-            <option>Sunday, Morning (8am–12pm)</option>
-            <option>Sunday, Afternoon (12pm–4pm)</option>
-          </select>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Connect your data</strong>
+          <span>Sync TrainingPeaks, Garmin Connect, or Strava. Your coach reviews your last 90 days before the call.</span>
         </div>
-
-        <div class="form-row">
-          <label>Second choice</label>
-          <select id="window2">
-            <option value="">Select a window...</option>
-            <option>Monday–Friday, Morning (8am–12pm)</option>
-            <option>Monday–Friday, Afternoon (12pm–5pm)</option>
-            <option>Monday–Friday, Evening (5pm–8pm)</option>
-            <option>Saturday, Morning (8am–12pm)</option>
-            <option>Saturday, Afternoon (12pm–4pm)</option>
-            <option>Sunday, Morning (8am–12pm)</option>
-            <option>Sunday, Afternoon (12pm–4pm)</option>
-          </select>
-        </div>
-
-        <button class="btn-submit" onclick="submitWindows()">Confirm My Availability</button>
-        <p class="form-note">You'll receive a text within 24 hours to confirm your exact time.</p>
       </div>
 
-      <div class="form-success" id="formSuccess">
-        <div class="check-big">&#10003;</div>
-        <strong style="font-size:15px;display:block;margin-bottom:6px;">Got it. You're all set.</strong>
-        <p>We'll text you within 24 hours to lock in your time. Keep your phone close.</p>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Confirm your SMS number</strong>
+          <span>We schedule by text, not email. Make sure the number you submitted is the one you check. We reach out within 24 hours.</span>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Pick two call windows</strong>
+          <span>We'll confirm one by text.</span>
+          <div class="windows-inline" id="windowsInline">
+            <select id="w1">
+              <option value="">First choice...</option>
+              <option>Mon-Fri · Morning (8am-12pm ET)</option>
+              <option>Mon-Fri · Afternoon (12pm-5pm ET)</option>
+              <option>Mon-Fri · Evening (5pm-8pm ET)</option>
+              <option>Saturday · Morning (8am-12pm ET)</option>
+              <option>Saturday · Afternoon (12pm-4pm ET)</option>
+              <option>Sunday · Morning (8am-12pm ET)</option>
+              <option>Sunday · Afternoon (12pm-4pm ET)</option>
+            </select>
+            <select id="w2">
+              <option value="">Second choice...</option>
+              <option>Mon-Fri · Morning (8am-12pm ET)</option>
+              <option>Mon-Fri · Afternoon (12pm-5pm ET)</option>
+              <option>Mon-Fri · Evening (5pm-8pm ET)</option>
+              <option>Saturday · Morning (8am-12pm ET)</option>
+              <option>Saturday · Afternoon (12pm-4pm ET)</option>
+              <option>Sunday · Morning (8am-12pm ET)</option>
+              <option>Sunday · Afternoon (12pm-4pm ET)</option>
+            </select>
+            <button class="btn-confirm" onclick="confirmWindows()">Confirm windows</button>
+          </div>
+          <div class="windows-confirmed" id="windowsConfirmed" style="display:none;">
+            Got it. We'll text you within 24 hours to lock in your slot.
+          </div>
+        </div>
       </div>
 
     </div>
-  </div>
-
-  <!-- PROMISE BANNER -->
-  <div class="promise-banner">
-    <strong>You'll hear from us by text within 24 hours.</strong>
-    <span>No email chase, no scheduling link to hunt for. One text, one confirmed time, done.</span>
   </div>
 
   <!-- PROOF STRIP -->
   <div class="proof-strip">
     <div class="inner">
-      <div class="section-label">Why the call is worth your time</div>
+      <div class="proof-label">What the diagnostic unlocks</div>
       <div class="proof-row">
-        <div class="proof-item">
-          <div class="watts">240 → 270w</div>
-          <div class="detail">+30 watts · 12 weeks · Same hours</div>
+        <div class="proof-card">
+          <div class="delta">+30w</div>
+          <div class="detail">240 to 270w · 12 weeks · Same hours</div>
           <div class="who">Mike · 47 · CEO · Austin TX</div>
         </div>
-        <div class="proof-item">
-          <div class="watts">275 → 301w</div>
-          <div class="detail">+26 watts · 10 weeks · Same hours</div>
-          <div class="who">Thomas · 52 · Former marathoner</div>
-        </div>
-        <div class="proof-item">
-          <div class="watts">230 → 268w</div>
-          <div class="detail">+38 watts · 12 weeks · Same hours</div>
+        <div class="proof-card">
+          <div class="delta">+38w</div>
+          <div class="detail">230 to 268w · 12 weeks · Same hours</div>
           <div class="who">Bryan · 47 · Project Manager · Portland OR</div>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- FOOTER REMINDER -->
+  <div class="footer-reminder">
+    A coach will text you within 24 hours. <strong>Replying fast secures your place in the diagnostic queue.</strong>
   </div>
 
   <!-- DISCLAIMER -->
@@ -465,15 +392,15 @@
   </div>
 
   <script>
-  function submitWindows() {
-    var w1 = document.getElementById('window1').value;
-    var w2 = document.getElementById('window2').value;
+  function confirmWindows() {
+    var w1 = document.getElementById('w1').value;
+    var w2 = document.getElementById('w2').value;
     if (!w1 || !w2) {
-      alert('Please select both preferred windows before confirming.');
+      alert('Please select both windows before confirming.');
       return;
     }
-    document.getElementById('windowsForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('windowsInline').style.display = 'none';
+    document.getElementById('windowsConfirmed').style.display = 'block';
   }
   </script>
 
