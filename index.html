@@ -535,53 +535,6 @@
       color: var(--black);
     }
     .apply-sub { margin-top: 12px; font-size: 13px; color: var(--gray-text); }
-
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      z-index: 999;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-    .modal-overlay.active { display: flex; }
-    .modal-box {
-      position: relative;
-      background: var(--white);
-      border-radius: 12px;
-      width: 100%;
-      max-width: 680px;
-      max-height: 90vh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .modal-close {
-      position: absolute;
-      top: 10px; right: 14px;
-      z-index: 10;
-      background: none;
-      border: none;
-      font-size: 28px;
-      color: #888;
-      cursor: pointer;
-      line-height: 1;
-      padding: 4px 8px;
-    }
-    .modal-close:hover { color: var(--black); }
-    .modal-title {
-      font-size: clamp(16px, 2.5vw, 20px);
-      font-weight: 700;
-      color: var(--black);
-      text-align: center;
-      padding: 22px 48px 14px;
-      line-height: 1.3;
-      flex-shrink: 0;
-    }
-    #tf-widget { flex: 1; min-height: 0; }
   </style>
 </head>
 <body>
@@ -589,7 +542,7 @@
   <!-- STICKY HEADER -->
   <header class="sticky-header">
     <div class="logo">ForCyclers</div>
-    <button class="btn-primary" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-hide-headers data-tf-hide-footer>See If You Qualify →</button>
   </header>
 
   <!-- HERO -->
@@ -615,17 +568,8 @@
   <div id="apply" class="apply-card">
     <div class="apply-card-inner">
       <h3>Fill out the application and book a call</h3>
-      <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
+      <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-hide-headers data-tf-hide-footer>See If You Qualify →</button>
       <p class="apply-sub">Each coach works with a maximum of 15 athletes — spots are currently limited.</p>
-    </div>
-  </div>
-
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <h3 class="modal-title">Fill out the application below and book a call</h3>
-      <div id="tf-widget" data-tf-widget="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-hide-headers data-tf-hide-footer></div>
     </div>
   </div>
 
@@ -726,7 +670,7 @@
 
   <!-- PRIMARY CTA + SCARCITY — after proof + mechanism -->
   <div class="cta-section">
-    <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-hide-headers data-tf-hide-footer>See If You Qualify →</button>
     <p class="cta-capacity"><strong>Diagnostic calls are limited by coach capacity.</strong> We tried coaching more than 15 athletes per coach — signal quality dropped. Fifteen is the number where the method works. PT, CT &amp; ET time zones.</p>
     <p class="cta-label">15 minutes. Free. We don't take riders we don't believe we can help.</p>
   </div>
@@ -887,7 +831,7 @@
 
   <!-- SECTION CTA before FAQ -->
   <div class="section-cta">
-    <button class="btn-primary large" onclick="openModal()">See If You Qualify →</button>
+    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-hide-headers data-tf-hide-footer>See If You Qualify →</button>
     <p class="cta-label" style="margin-top:8px;">15-minute diagnostic call. Free. No obligation.</p>
   </div>
 
@@ -942,7 +886,7 @@
     <div class="section-label" style="color:rgba(255,255,255,0.35);">The next step</div>
     <h2>Still blaming your age?<br>Or ready to find out what's actually<br>been hiding from you?</h2>
     <p>15 minutes. We look at your plateau, your signals, your history. You'll know exactly which of the 5 signals has been the limiter — and whether Second Wind is the right fit. If it isn't, we'll tell you that too.</p>
-    <button class="btn-primary large" onclick="openModal()">Book the 15 Minutes — We'll Name the Signal That's Been Stopping You →</button>
+    <button class="btn-primary large" data-tf-popup="01KQ0879ZTH00RDYJCRQQ891V7" data-tf-hide-headers data-tf-hide-footer>Book the 15 Minutes — We'll Name the Signal That's Been Stopping You →</button>
     <p class="risk-note">Performance checkpoint at week 12 with full plan adjustments if you're off track.</p>
   </div>
 
@@ -951,26 +895,7 @@
     ForCyclers coaching is performance-based training and does not constitute medical advice. Results shown are individual and not guaranteed. FTP gains depend on starting fitness, consistency, and other factors specific to each athlete. Consult a physician before beginning any new training program.
   </div>
 
-  <script>
-    function openModal() {
-      document.getElementById('modal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-      if (!window._tfLoaded) {
-        window._tfLoaded = true;
-        const s = document.createElement('script');
-        s.src = '//embed.typeform.com/next/embed.js';
-        document.head.appendChild(s);
-      }
-    }
-    function closeModal() {
-      document.getElementById('modal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function closeModalOutside(e) {
-      if (e.target === document.getElementById('modal')) closeModal();
-    }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-  </script>
+  <script src="//embed.typeform.com/next/embed.js"></script>
 
 </body>
 </html>
