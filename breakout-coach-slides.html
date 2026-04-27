@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ForCyclers - Coach Breakout Videos</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #ffffff;
+      color: #0f0f0f;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #1d4ed8;
+      transition: width 0.3s ease;
+      z-index: 100;
+    }
+
+    .video-indicator {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 100;
+    }
+
+    .video-dot {
+      width: 28px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(0,0,0,0.12);
+      transition: background 0.3s;
+    }
+
+    .video-dot.active {
+      background: #1d4ed8;
+    }
+
+    .slide {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      padding: 64px 10vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    .slide-text {
+      font-size: clamp(22px, 2.6vw, 32px);
+      line-height: 1.65;
+      color: #0f0f0f;
+      max-width: 860px;
+    }
+
+    .slide-text strong {
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 36px;
+      right: 48px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-counter {
+      font-size: 12px;
+      color: rgba(0,0,0,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    .nav-arrows {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: rgba(0,0,0,0.06);
+      border: none;
+      color: rgba(0,0,0,0.4);
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(0,0,0,0.12);
+      color: #0f0f0f;
+    }
+
+    .logo {
+      position: fixed;
+      top: 20px;
+      left: 48px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.2);
+    }
+
+    .hint {
+      position: fixed;
+      bottom: 36px;
+      left: 48px;
+      font-size: 11px;
+      color: rgba(0,0,0,0.18);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress"></div>
+  <div class="logo">ForCyclers</div>
+
+  <div class="video-indicator">
+    <div class="video-dot active" id="dot-0"></div>
+    <div class="video-dot" id="dot-1"></div>
+    <div class="video-dot" id="dot-2"></div>
+  </div>
+
+  <!-- VIDEO 1 -->
+  <div class="slide active">
+    <div class="slide-text">
+      Hey. If you're watching this, you just submitted your application - and I appreciate that. My name is Matheo. I'm the founder of ForCyclers. I want to take a few minutes to walk you through what this coaching role actually looks like day to day, before we get on a call together.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Because the worst thing that can happen is you join, you start, and reality doesn't match what you expected. <strong>I'd rather be upfront with you now than waste both our time.</strong>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Here's what a typical day looks like. You start your morning by pulling up TrainingPeaks. Each of your athletes has logged their sessions from the previous day - their power data, their heart rate, their compliance with the plan. You also check their HRV trends. You're looking for flags: someone accumulating too much fatigue, someone underperforming, someone who skipped sessions three days in a row.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Based on what you see, you make adjustments. Maybe one athlete's training load needs to come down this week. Maybe another is ready to push into a harder block. Those decisions take five to ten minutes per athlete - and <strong>we've built AI tools that surface the data for you</strong> so you're not hunting for it manually.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Then you open WhatsApp. You'll have messages from athletes - questions about their plan, their upcoming event, something they noticed in their data. You respond. You're not on the clock for instant replies, but you are expected to be <strong>responsive within a few hours during the day.</strong>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Once a month, you have a Zoom check-in with each athlete. Thirty minutes. Camera on. You go through their progress, adjust their goals, keep them accountable. <strong>Those calls are where the real coaching happens.</strong> Everything else is the system doing its job.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      One thing I want to be honest about. When you start, your roster won't be seventy athletes - it'll be five, maybe ten. The daily workload at that stage is manageable alongside other commitments. As we scale our advertising, your roster grows. <strong>The goal is for this to become your primary income over time</strong> - but we're not asking you to clear your schedule on day one. We're asking you to have the bandwidth for your athletes, and the ambition to build toward full-time as the numbers grow.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      That's the role. <strong>If that sounds like something you can see yourself doing - keep watching.</strong>
+    </div>
+  </div>
+
+  <!-- VIDEO 2 -->
+  <div class="slide">
+    <div class="slide-text">
+      Let me walk you through exactly how the pay works. It's simple. <strong>One hundred dollars per active athlete per month.</strong> No tiers, no variables, no complex structure. At thirty athletes, you earn three thousand dollars that month. Fifty - five thousand. Seventy - seven thousand.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      You're paid monthly for every athlete who's still active on program. The moment an athlete's program ends and they don't renew, they come off your count. Which means your incentive is clear: <strong>coach well, keep your athletes progressing, and your income is stable and growing.</strong>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Now, seventy athletes sounds like a lot - and it would be, if you were doing everything manually. That's exactly why we built systems to make it possible. We've developed <strong>AI-powered tools</strong> that pull your athletes' data from Garmin and TrainingPeaks, flag what needs your attention, and handle the repetitive parts of the communication. You focus on the decisions. The system handles the volume.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      In a traditional setup, coaches cap out at twenty to thirty clients because the admin gets overwhelming. <strong>With our tools, seventy is a realistic target</strong> - not an optimistic one. As our advertising scales, more athletes come in and your roster grows. There's no ceiling.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      A coach who's ramped up and using our systems well is earning <strong>between five and seven thousand dollars a month.</strong> You get paid on the 1st of every month. Your earnings are calculated from active, paying athletes on your roster at that date. If the structure makes sense to you - keep watching.
+    </div>
+  </div>
+
+  <!-- VIDEO 3 -->
+  <div class="slide">
+    <div class="slide-text">
+      This last video is about expectations. <strong>What I need from you for this to work - for both of us.</strong>
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      First - the knowledge. Our athletes are serious cyclists. They're tracking their power, their HRV, their training stress score. They've been riding for years. They'll ask you technical questions, and they'll know if your answers aren't solid. You need to know <strong>TrainingPeaks well, understand polarized training, power-based periodization, and HRV-based load management.</strong> If you're not there yet on those, that's something we can't solve in onboarding.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Second - availability. This role is async by design. You don't need to be tied to a desk from nine to five. But you do need to be responsive on WhatsApp during your athletes' active hours, and you need to <strong>show up professionally for your monthly Zoom check-ins.</strong> Camera on, clean setup, good audio. Our athletes are paying a significant amount for this coaching. They need to feel that in how you show up.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Third - commitment. We understand you may have other income sources while you're ramping up - that's expected at the start. <strong>What we can't have is a parallel cycling coaching business</strong> where you're taking on your own clients independently. That creates a conflict of interest. Beyond that, your ForCyclers athletes come first. They're never the afterthought.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Fourth - <strong>willingness to build together.</strong> We're in an early stage on the English-speaking market. Some processes are still being refined. I'll ask for your feedback. I'll share what's working and what isn't. The coaches who join now are the ones who'll shape how this system works at scale.
+    </div>
+  </div>
+
+  <div class="slide">
+    <div class="slide-text">
+      Fifth - coachability. I'll give you honest feedback on your athletes' progression. <strong>What I need from you is to take that feedback and actually use it.</strong> If you're still watching - I'm guessing this feels right. You'll hear from us within twenty-four hours with your next step. Looking forward to meeting you.
+    </div>
+  </div>
+
+  <div class="hint">Click or use arrow keys to navigate</div>
+
+  <div class="nav">
+    <span class="nav-counter" id="counter">1 / 19</span>
+    <div class="nav-arrows">
+      <button class="nav-btn" id="prev">&#8592;</button>
+      <button class="nav-btn" id="next">&#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
+    const progress = document.getElementById('progress');
+    const dots = [
+      document.getElementById('dot-0'),
+      document.getElementById('dot-1'),
+      document.getElementById('dot-2')
+    ];
+
+    // slide index where each video starts (0-based)
+    const videoStarts = [0, 8, 13];
+
+    let current = 0;
+
+    function getVideoIndex(slideIndex) {
+      for (let i = videoStarts.length - 1; i >= 0; i--) {
+        if (slideIndex >= videoStarts[i]) return i;
+      }
+      return 0;
+    }
+
+    function show(n) {
+      slides[current].classList.remove('active');
+      current = Math.max(0, Math.min(n, slides.length - 1));
+      slides[current].classList.add('active');
+      counter.textContent = (current + 1) + ' / ' + slides.length;
+      progress.style.width = ((current + 1) / slides.length * 100) + '%';
+
+      const vid = getVideoIndex(current);
+      dots.forEach((d, i) => d.classList.toggle('active', i === vid));
+    }
+
+    document.getElementById('next').addEventListener('click', function(e) {
+      e.stopPropagation();
+      show(current + 1);
+    });
+
+    document.getElementById('prev').addEventListener('click', function(e) {
+      e.stopPropagation();
+      show(current - 1);
+    });
+
+    document.body.addEventListener('click', function() {
+      show(current + 1);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === ' ') show(current + 1);
+      if (e.key === 'ArrowLeft') show(current - 1);
+    });
+
+    show(0);
+  </script>
+
+</body>
+</html>
