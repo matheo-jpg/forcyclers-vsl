@@ -4,152 +4,167 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ForCyclers — Application Received</title>
-
-  <!-- Meta Pixel -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
-    fbq('track', 'CompleteRegistration');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=CompleteRegistration&noscript=1"/>
-  </noscript>
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --black: #0f0f0f;
-      --white: #ffffff;
-      --gray-light: #f5f5f5;
-      --gray-mid: #e0e0e0;
-      --gray-text: #555555;
-      --accent: #1d4ed8;
-      --green: #16a34a;
-    }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      background: var(--white);
-      color: var(--black);
-      font-size: 16px;
+      background: #f8f8f8;
+      color: #0f0f0f;
       line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;
     }
 
-    .card {
-      max-width: 540px;
-      width: 100%;
+    /* HEADER */
+    .fc-header {
+      background: #0f0f0f;
+      padding: 14px 24px;
       text-align: center;
     }
-
-    .check {
-      width: 56px;
-      height: 56px;
-      background: var(--green);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 24px;
-      color: white;
-    }
-
-    .eyebrow {
-      font-size: 11px;
+    .fc-logo {
+      color: #fff;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      color: var(--black);
-    }
-
-    .body-text {
-      font-size: 16px;
-      color: var(--gray-text);
-      line-height: 1.65;
-      margin-bottom: 32px;
-    }
-
-    .next-steps {
-      background: var(--gray-light);
-      border: 1px solid var(--gray-mid);
-      border-radius: 8px;
-      padding: 24px;
-      text-align: left;
-      margin-bottom: 32px;
-    }
-    .next-steps-label {
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 15px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
-    }
-    .steps-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .steps-list li {
-      font-size: 14px;
-      color: #333;
-      padding-left: 24px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .steps-list li::before {
-      content: attr(data-step);
-      position: absolute;
-      left: 0;
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 13px;
     }
 
-    .footer-note {
-      font-size: 12px;
-      color: #bbb;
-      line-height: 1.6;
+    /* HERO */
+    .fc-hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 52px 24px 16px;
+      text-align: center;
+    }
+    .fc-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #1d4ed8;
+      margin-bottom: 14px;
+    }
+    .fc-hero h1 {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #0f0f0f;
+      margin-bottom: 14px;
+    }
+    .fc-hero h1 em { font-style: normal; color: #1d4ed8; }
+    .fc-subhead {
+      font-size: clamp(15px, 2vw, 17px);
+      color: #555;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* VIDEOS */
+    .fc-videos {
+      max-width: 720px;
+      margin: 40px auto 0;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .fc-video-block {}
+    .fc-video-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: #1d4ed8;
+      margin-bottom: 10px;
+    }
+    .fc-video-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0f0f0f;
+      margin-bottom: 14px;
+    }
+
+    /* FOOTER */
+    .fc-footer {
+      max-width: 720px;
+      margin: 48px auto 0;
+      padding: 32px 24px 48px;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.09);
+    }
+    .fc-footer p {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      .fc-hero h1 { font-size: 24px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="check">✓</div>
-    <div class="eyebrow">ForCyclers — Closer Role</div>
-    <h1>Application received.</h1>
-    <p class="body-text">We review every application manually. If your profile matches what we're looking for, you'll hear from us within 24 hours.</p>
+  <header class="fc-header">
+    <div class="fc-logo">ForCyclers</div>
+  </header>
 
-    <div class="next-steps">
-      <div class="next-steps-label">What happens next</div>
-      <ul class="steps-list">
-        <li data-step="1.">We review your answers.</li>
-        <li data-step="2.">If there's a fit, we reach out on WhatsApp to book a call with you directly.</li>
-        <li data-step="3.">We make a decision within 48 hours of that call.</li>
-      </ul>
+  <div class="fc-hero">
+    <div class="fc-eyebrow">Application received</div>
+    <h1>Watch these <em>3 short videos</em><br>before your interview.</h1>
+    <p class="fc-subhead">They'll tell you exactly what the role looks like, what it pays, and what we expect. We'll be in touch within 24 hours.</p>
+  </div>
+
+  <div class="fc-videos">
+
+    <div class="fc-video-block">
+      <div class="fc-video-label">Video 1 of 3</div>
+      <div class="fc-video-title">A real day in this role</div>
+      <div id="vidalytics_embed_na_OdKh7vLLjbpWL" style="width: 100%; position:relative; padding-top: 64.63%;"></div>
+      <script type="text/javascript">
+      (function (v, i, d, a, l, y, t, c, s) {
+          y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
+          if (!vsl){vsl=function(u,cb){
+              if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
+              if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
+              i.getElementsByTagName("head")[0].appendChild(s);
+          };}
+          vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
+      })(window, document, 'Vidalytics', 'vidalytics_embed_na_OdKh7vLLjbpWL', 'https://fast.vidalytics.com/embeds/j3d1vxJQ/na_OdKh7vLLjbpWL/');
+      </script>
     </div>
 
-    <p class="footer-note">We move fast.<br><br>Questions? Email us at <a href="mailto:hiring@forcyclers.com" style="color:#aaa;">hiring@forcyclers.com</a></p>
+    <div class="fc-video-block">
+      <div class="fc-video-label">Video 2 of 3</div>
+      <div class="fc-video-title">How the pay works - exactly</div>
+      <div id="WNTR00G2GAfO0Itp" style="width: 100%; position:relative; padding-top: 64.63%;"></div>
+      <script type="text/javascript">
+      (function (v, i, d, a, l, y, t, c, s) {
+          y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}
+          t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);
+          s.onreadystatechange=function(){if(s.readyState==4){if((s.status==200||s.status==304)){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options: sd};t();}}};s.send();
+      })(window, document, 'Vidalytics', 'WNTR00G2GAfO0Itp', 'https://fast.vidalytics.com/embeds/j3d1vxJQ/WNTR00G2GAfO0Itp/player.settings.json');
+      </script>
+    </div>
+
+    <div class="fc-video-block">
+      <div class="fc-video-label">Video 3 of 3</div>
+      <div class="fc-video-title">What I need from you</div>
+      <div id="qAU5z7SvcNTa8eJm" style="width: 100%; position:relative; padding-top: 64.63%;"></div>
+      <script type="text/javascript">
+      (function (v, i, d, a, l, y, t, c, s) {
+          y='_'+d.toLowerCase();if(!v[y]){v[y]={}}if(!v[y].embeds){v[y].embeds={}}
+          t=function(){if(v[d]&&v[d].Embed){var ve=v[d].Embed;c=new ve();c.run(a);c.loadCss();}else{setTimeout(t,1000)}};s=new XMLHttpRequest();s.open("GET",l+'?ac='+(new Date()).getTime(),true);
+          s.onreadystatechange=function(){if(s.readyState==4){if((s.status==200||s.status==304)){var sd=JSON.parse(s.responseText);v[y].embeds[a]={type:"video",options: sd};t();}}};s.send();
+      })(window, document, 'Vidalytics', 'qAU5z7SvcNTa8eJm', 'https://fast.vidalytics.com/embeds/j3d1vxJQ/qAU5z7SvcNTa8eJm/player.settings.json');
+      </script>
+    </div>
+
   </div>
+
+  <footer class="fc-footer">
+    <p>We've received your application and will be in touch within 24 hours.<br>ForCyclers LLC - Remote position - Commission only</p>
+  </footer>
 
 </body>
 </html>
