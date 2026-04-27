@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ForCyclers - Coach Recruiting VSL</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f0f0f;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #1d4ed8;
+      transition: width 0.3s ease;
+      z-index: 100;
+    }
+
+    .slide {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+      padding: 64px 10vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    .slide-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #1d4ed8;
+      margin-bottom: 32px;
+    }
+
+    .slide-text {
+      font-size: clamp(22px, 2.6vw, 32px);
+      line-height: 1.65;
+      color: #ffffff;
+      max-width: 860px;
+    }
+
+    .slide-text strong {
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    .nav {
+      position: fixed;
+      bottom: 36px;
+      right: 48px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-counter {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    .nav-arrows {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      background: rgba(255,255,255,0.06);
+      border: none;
+      color: rgba(255,255,255,0.5);
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    .logo {
+      position: fixed;
+      top: 24px;
+      left: 48px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .hint {
+      position: fixed;
+      bottom: 36px;
+      left: 48px;
+      font-size: 11px;
+      color: rgba(255,255,255,0.18);
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progress"></div>
+  <div class="logo">ForCyclers</div>
+
+  <!-- SLIDE 1 - HOOK -->
+  <div class="slide active">
+    <div class="slide-label">Hook - 0:00 to 0:15</div>
+    <div class="slide-text">
+      If you're a cycling coach who knows exactly what your athletes need to do - but you can't fill your roster - <strong>this video is worth three minutes of your time.</strong>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 - PROOF + VISION part 1 -->
+  <div class="slide">
+    <div class="slide-label">Proof + Vision - 0:15 to 0:55</div>
+    <div class="slide-text">
+      My name is Matheo. I'm the founder of ForCyclers. We sell premium cycling coaching to serious athletes - and we've already built and validated this model on the French market. <strong>We currently coach over five hundred athletes per month there.</strong> The system - the ads, the funnel, the offer - is proven and running at scale.
+    </div>
+  </div>
+
+  <!-- SLIDE 3 - PROOF + VISION part 2 -->
+  <div class="slide">
+    <div class="slide-label">Proof + Vision - continued</div>
+    <div class="slide-text">
+      Now we're bringing that exact playbook to the <strong>US, the UK, Canada, and Australia.</strong> The English-speaking world. We know the path. We've already walked it. And we're hiring the coaches who are going to build this with us.
+    </div>
+  </div>
+
+  <!-- SLIDE 4 - ATHLETE QUALITY part 1 -->
+  <div class="slide">
+    <div class="slide-label">Athlete Quality - 0:55 to 1:25</div>
+    <div class="slide-text">
+      Here's what makes this different from finding your own clients. Every athlete who lands on your roster has already been through our system. They watched a detailed video about our program. They filled out a full application about their training history, their goals, and their current situation. They were manually reviewed and approved by our team. <strong>And they paid in full before they ever became your client.</strong>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 - ATHLETE QUALITY part 2 -->
+  <div class="slide">
+    <div class="slide-label">Athlete Quality - continued</div>
+    <div class="slide-text">
+      By the time an athlete comes to you, they're committed. They're not tire-kickers. They're not people who need to be convinced that coaching is worth it. They've already decided. <strong>Your job is to coach them</strong> - not to sell yourself, not to justify your rates, not to chase anyone down.
+    </div>
+  </div>
+
+  <!-- SLIDE 6 - THE MONEY part 1 -->
+  <div class="slide">
+    <div class="slide-label">The Money - 1:25 to 2:00</div>
+    <div class="slide-text">
+      Here's what it pays. <strong>One hundred dollars per active athlete per month.</strong> That's it - no complex structure, no variables. At thirty athletes, you're earning three thousand dollars a month. At fifty, five thousand. At seventy, seven thousand. There's no ceiling on that. The more we scale our advertising, the more athletes come in, and the more your roster grows.
+    </div>
+  </div>
+
+  <!-- SLIDE 7 - THE MONEY part 2 -->
+  <div class="slide">
+    <div class="slide-label">The Money - continued</div>
+    <div class="slide-text">
+      Now, I know what you might be thinking. Seventy athletes sounds like a lot. It is - if you're doing everything manually. Which is exactly why we built systems to make it possible. Inside ForCyclers, we've developed <strong>AI-powered tools</strong> that automate the data analysis, surface what matters from your athletes' Garmin and TrainingPeaks data, and handle the repetitive communication so you can stay focused on actual coaching. Coaches in traditional setups cap out at twenty to thirty clients. <strong>With our systems, seventy is a realistic target.</strong>
+    </div>
+  </div>
+
+  <!-- SLIDE 8 - WHO WE WANT part 1 -->
+  <div class="slide">
+    <div class="slide-label">Who We Want - 2:00 to 2:25</div>
+    <div class="slide-text">
+      We've found two types of people who consistently thrive in this kind of role. The first is the <strong>younger ex-competitive cyclist</strong> - someone who's been riding and racing seriously, has coached informally, and wants to turn that into a real career. Someone who sees a proven system with a full roster of qualified athletes and thinks - this is exactly what I was looking for.
+    </div>
+  </div>
+
+  <!-- SLIDE 9 - WHO WE WANT part 2 -->
+  <div class="slide">
+    <div class="slide-label">Who We Want - continued</div>
+    <div class="slide-text">
+      The second is someone <strong>more established</strong> - maybe they've been coaching for a few years but struggle with the client acquisition side. They're great at the coaching work, they just don't want to build an Instagram or run their own ads. They want to coach. We handle everything else. What we need in either case is someone who's <strong>all in.</strong> Not someone treating it as a side project. We're building something serious and we need coaches who are building with us.
+    </div>
+  </div>
+
+  <!-- SLIDE 10 - EXPECTATIONS part 1 -->
+  <div class="slide">
+    <div class="slide-label">Expectations - 2:25 to 2:50</div>
+    <div class="slide-text">
+      You'll work fully remote. You need to be comfortable on Google Meet for monthly check-ins with your athletes, available on WhatsApp between sessions, and professional in how you show up. <strong>Clean setup, clean appearance.</strong>
+    </div>
+  </div>
+
+  <!-- SLIDE 11 - EXPECTATIONS part 2 -->
+  <div class="slide">
+    <div class="slide-label">Expectations - continued</div>
+    <div class="slide-text">
+      On the knowledge side - you need to know your way around <strong>TrainingPeaks,</strong> understand power-based periodization, polarized training, and HRV-based load management. Our athletes are serious cyclists. They know their numbers. They need a coach who knows them too. You don't need to know how to sell. You don't need social media or a client funnel. <strong>You need to coach well. We handle everything else.</strong>
+    </div>
+  </div>
+
+  <!-- SLIDE 12 - CTA -->
+  <div class="slide">
+    <div class="slide-label">CTA - 2:50 to 3:00</div>
+    <div class="slide-text">
+      Click the button below. The application takes about five minutes.<br><br>
+      If you're the right fit, you'll hear from us within twenty-four hours with the exact next step.<br><br>
+      <strong>Looking forward to it.</strong>
+    </div>
+  </div>
+
+  <div class="hint">Click or use arrow keys to navigate</div>
+
+  <div class="nav">
+    <span class="nav-counter" id="counter">1 / 12</span>
+    <div class="nav-arrows">
+      <button class="nav-btn" id="prev">&#8592;</button>
+      <button class="nav-btn" id="next">&#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('counter');
+    const progress = document.getElementById('progress');
+    let current = 0;
+
+    function show(n) {
+      slides[current].classList.remove('active');
+      current = Math.max(0, Math.min(n, slides.length - 1));
+      slides[current].classList.add('active');
+      counter.textContent = (current + 1) + ' / ' + slides.length;
+      progress.style.width = ((current + 1) / slides.length * 100) + '%';
+    }
+
+    document.getElementById('next').addEventListener('click', function(e) {
+      e.stopPropagation();
+      show(current + 1);
+    });
+
+    document.getElementById('prev').addEventListener('click', function(e) {
+      e.stopPropagation();
+      show(current - 1);
+    });
+
+    document.body.addEventListener('click', function() {
+      show(current + 1);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === ' ') show(current + 1);
+      if (e.key === 'ArrowLeft') show(current - 1);
+    });
+
+    show(0);
+  </script>
+
+</body>
+</html>
