@@ -29,25 +29,37 @@
 
     .video-indicator {
       position: fixed;
-      top: 20px;
+      top: 16px;
       left: 0;
       right: 0;
       display: flex;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
       z-index: 100;
     }
 
-    .video-dot {
-      width: 28px;
-      height: 4px;
-      border-radius: 2px;
-      background: rgba(0,0,0,0.12);
-      transition: background 0.3s;
+    .video-tab {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: rgba(0,0,0,0.06);
+      color: rgba(0,0,0,0.35);
+      border: none;
     }
 
-    .video-dot.active {
+    .video-tab.active {
       background: #1d4ed8;
+      color: #ffffff;
+    }
+
+    .video-tab:hover:not(.active) {
+      background: rgba(0,0,0,0.1);
+      color: rgba(0,0,0,0.6);
     }
 
     .slide {
@@ -144,9 +156,9 @@
   <div class="logo">ForCyclers</div>
 
   <div class="video-indicator">
-    <div class="video-dot active" id="dot-0"></div>
-    <div class="video-dot" id="dot-1"></div>
-    <div class="video-dot" id="dot-2"></div>
+    <button class="video-tab active" id="tab-0">Video 1 - A real day in this role</button>
+    <button class="video-tab" id="tab-1">Video 2 - How the pay works</button>
+    <button class="video-tab" id="tab-2">Video 3 - What I need from you</button>
   </div>
 
   <!-- VIDEO 1 -->
@@ -280,14 +292,16 @@
     const slides = document.querySelectorAll('.slide');
     const counter = document.getElementById('counter');
     const progress = document.getElementById('progress');
-    const dots = [
-      document.getElementById('dot-0'),
-      document.getElementById('dot-1'),
-      document.getElementById('dot-2')
+    const tabs = [
+      document.getElementById('tab-0'),
+      document.getElementById('tab-1'),
+      document.getElementById('tab-2')
     ];
 
-    // slide index where each video starts (0-based)
+    // first slide index of each video (0-based)
     const videoStarts = [0, 8, 13];
+    // last slide index of each video (0-based)
+    const videoEnds = [7, 12, 18];
 
     let current = 0;
 
@@ -302,30 +316,52 @@
       slides[current].classList.remove('active');
       current = Math.max(0, Math.min(n, slides.length - 1));
       slides[current].classList.add('active');
-      counter.textContent = (current + 1) + ' / ' + slides.length;
-      progress.style.width = ((current + 1) / slides.length * 100) + '%';
 
       const vid = getVideoIndex(current);
-      dots.forEach((d, i) => d.classList.toggle('active', i === vid));
+      const vidStart = videoStarts[vid];
+      const vidEnd = videoEnds[vid];
+      const posInVideo = current - vidStart + 1;
+      const totalInVideo = vidEnd - vidStart + 1;
+      counter.textContent = posInVideo + ' / ' + totalInVideo;
+      progress.style.width = (posInVideo / totalInVideo * 100) + '%';
+
+      tabs.forEach((t, i) => t.classList.toggle('active', i === vid));
     }
+
+    // tabs jump to start of that video
+    tabs.forEach(function(tab, i) {
+      tab.addEventListener('click', function(e) {
+        e.stopPropagation();
+        show(videoStarts[i]);
+      });
+    });
 
     document.getElementById('next').addEventListener('click', function(e) {
       e.stopPropagation();
-      show(current + 1);
+      const vid = getVideoIndex(current);
+      if (current < videoEnds[vid]) show(current + 1);
     });
 
     document.getElementById('prev').addEventListener('click', function(e) {
       e.stopPropagation();
-      show(current - 1);
+      const vid = getVideoIndex(current);
+      if (current > videoStarts[vid]) show(current - 1);
     });
 
+    // body click advances within current video only
     document.body.addEventListener('click', function() {
-      show(current + 1);
+      const vid = getVideoIndex(current);
+      if (current < videoEnds[vid]) show(current + 1);
     });
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'ArrowRight' || e.key === ' ') show(current + 1);
-      if (e.key === 'ArrowLeft') show(current - 1);
+      const vid = getVideoIndex(current);
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        if (current < videoEnds[vid]) show(current + 1);
+      }
+      if (e.key === 'ArrowLeft') {
+        if (current > videoStarts[vid]) show(current - 1);
+      }
     });
 
     show(0);
