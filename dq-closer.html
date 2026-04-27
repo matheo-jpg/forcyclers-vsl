@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Reviewed - ForCyclers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0f0f0f;
+      --white: #ffffff;
+      --accent: #1d4ed8;
+      --text-muted: #555;
+      --border: rgba(0,0,0,0.09);
+      --max: 720px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8f8f8;
+      color: var(--black);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* SYSTEME.IO OVERRIDE - uncomment when pasting into Systeme.io */
+    /*
+    .fc-wrap {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-top: -20px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8f8f8;
+      color: #0f0f0f;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    */
+
+    /* HEADER */
+    .fc-header {
+      background: var(--black);
+      padding: 14px 24px;
+      text-align: center;
+    }
+    .fc-header .logo {
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* MAIN CONTENT */
+    .fc-body {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+
+    .fc-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .fc-body h1 {
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 24px;
+    }
+
+    .fc-body p {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    .fc-footer {
+      margin-top: 80px;
+      padding: 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .fc-footer p {
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .fc-body { padding: 52px 24px 40px; }
+      .fc-body h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="fc-header">
+    <div class="logo">ForCyclers</div>
+  </header>
+
+  <div class="fc-body">
+    <div class="fc-eyebrow">Application reviewed</div>
+    <h1>This isn't the right fit - right now.</h1>
+    <p>We reviewed your profile and it doesn't match what we're looking for at this stage. We're specifically hiring experienced closers available during US business hours. Thank you for taking the time to apply.</p>
+  </div>
+
+  <footer class="fc-footer">
+    <p>ForCyclers LLC</p>
+  </footer>
+
+</body>
+</html>
